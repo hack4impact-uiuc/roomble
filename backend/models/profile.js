@@ -7,49 +7,51 @@ var ProfileSchema = new Schema({
     required: true,
   },
   school: {
-    type: String
+    type: String,
     required: true,
   },
   year: {
-    type: String
+    type: String,
+    enum: ['freshman', 'sophomore', 'junior', 'senior', 'grad'],
+    default: 'freshman',
     required: true,
   },
   age: {
-    type: Number
+    type: Number,
     required: true,
   },
   gender: {
-    type: String
+    type: String,
     required: true,
   },
   major: {
-    type: String
+    type: String,
     required: true,
   },
   phoneNumber: {
-    type: String
+    type: String,
     required: false,
   },
   fbUsername: {
-    type: String
+    type: String,
     required: false,
   },
   igUsername: {
-    type: String
+    type: String,
     required: false,
   },
   scUsername: {
-    type: String
+    type: String,
     required: false,
   },
   email: {
-    type: String
+    type: String,
     required: true,
   },
   housingType: {
     type: String,
     enum: ['undergrad-dorms','grad-dorms', 'private', 'off-campus'],
-    default: 'undergrad dorms'
+    default: 'undergrad dorms',
     required: true,
   },
   numRoomates: {
