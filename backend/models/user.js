@@ -2,11 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  profileId: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
-  username: {
+  email: {
     type: String,
     required: true,
   },
