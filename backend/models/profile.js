@@ -51,7 +51,7 @@ var ProfileSchema = new Schema({
   housingType: {
     type: String,
     enum: ['undergrad-dorms','grad-dorms', 'private', 'off-campus'],
-    default: 'undergrad dorms',
+    default: 'undergrad-dorms',
     required: true,
   },
   numRoomates: {
