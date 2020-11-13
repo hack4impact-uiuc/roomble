@@ -2,8 +2,6 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var LikesSchema = new Schema({
-    userId: ObjectId,
-    likedUsers: [ObjectId]
   userId: {
     type: Schema.Types.ObjectId,
     required: true,
