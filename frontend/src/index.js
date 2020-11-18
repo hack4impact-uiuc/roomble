@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
+import SignupPage from './pages/SignupPage'
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/" render={(props) => <SignupPage {...props} />} />
       </Switch>
     </Router>
   </React.StrictMode>,
