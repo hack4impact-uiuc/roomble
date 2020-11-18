@@ -1,4 +1,4 @@
-import './Home.css';
+import '../styles/Home.css';
 import { Button } from 'semantic-ui-react'
 
 function Home() {
