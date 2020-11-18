@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
+<<<<<<< HEAD
 import Profile from './pages/Profile';
+=======
+// import new components here!!
+>>>>>>> main
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -13,8 +17,12 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
+<<<<<<< HEAD
         <Route exact path="/profile" render={(props) => <Profile {...props} />} />
         
+=======
+        {/** Add new routes here!! */}
+>>>>>>> main
       </Switch>
     </Router>
   </React.StrictMode>,
