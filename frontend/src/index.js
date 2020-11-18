@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
+import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
       </Switch>
     </Router>
   </React.StrictMode>,
