@@ -1,0 +1,45 @@
+
+.input {
+    text-align: center;
+}
+input {
+    
+    position: relative;
+    top: 100px;
+    padding: 10px 10px;
+    right: -70px;
+    
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    top: 20px;
+}
+
+h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    position: relative;
+    top: 210px;
+    padding: 7px;
+    left: 590px;
+
+}
+
+h2 {
+    position: relative;
+    top: 110px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.button {
+    position: relative;
+    text-align: center;
+    padding: 10px 30px;
+    top: 120px;
+    left: 670px;
+}
