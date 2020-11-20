@@ -1,13 +1,50 @@
 h1 {
-    color:"#C70039";
+    color:#C70039;
 }
 
 .main {
-        display:"flex";
-        width: "60%";
-        margin:"auto";
-        background-color:"black";
-        border:"3px #C70039 outset";
-        border-radius : "15px";
-        justify-content:"center";
+        display:flex;
+        width: 60%;
+        margin:auto;
+        background-color:black;
+        border:3px #C70039 outset;
+        border-radius : 15px;
+        justify-content:center;
+}
+
+h2 {
+    color:white;
+    font-style:italic;
+    margin-top:5%;
+}
+
+.labelStyle {
+    color:white; 
+    font-size:16px;
+    background-color:#C70039;
+    width:48%;
+    margin-bottom:15px;
+    text-shadow: 2px 2px black;
+    font-weight:5;
+    margin-right:5%;
+    margin-left:5%;
+}
+
+.textLabelStyle {
+    color:white;
+    font-size:16px;
+    background-color:#C70039;
+    height:20%;
+    text-shadow:2px 2px black;
+    margin-right:10%;
+    margin-left:5%;
+    width:25%;
+
+
+
+}
+.textAreaStyle {
+    height:75px;
+    width:300px;
+    margin-right:5%;
 }
