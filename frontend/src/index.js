@@ -14,7 +14,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
-        <Route exact path="/" render={(props) => <SignupPage {...props} />} />
+        <Route exact path="/signuppage" render={(props) => <SignupPage {...props} />} />
         {/** Add new routes here!! */}
       </Switch>
     </Router>
