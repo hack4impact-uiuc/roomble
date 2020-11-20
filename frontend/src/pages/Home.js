@@ -1,23 +1,15 @@
-import logo from '../logo.svg';
-import './Home.css';
+import '../styles/Home.css';
+import { Button } from 'semantic-ui-react'
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="homepage">
+      <h1>Roomble</h1>
+      <h2>Get ready to ROOM-ble!!!</h2>
+      <Button size='massive'>Log In</Button>
+      <br />
+      <br/>
+      <Button size='massive'>Sign Up</Button>
     </div>
   );
 }
