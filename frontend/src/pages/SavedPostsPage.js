@@ -3,7 +3,7 @@ import { Button, Card, Image, Icon} from 'semantic-ui-react'
 
 function SavedPostsPage() {
   return (
-    <div>
+    <div class="page">
       <h1 class="title">Saved Posts</h1>
 
       <div class="cards">
@@ -44,6 +44,57 @@ function SavedPostsPage() {
 
           <Card>
             <Image src='https://react.semantic-ui.com/images/avatar/large/elliot.jpg' wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Daniel</Card.Header>
+              {/*<Card.Meta>Joined in 2016</Card.Meta>*/}
+              <Card.Description>
+                Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name='check circle' />
+                65%
+              </a>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Image src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Daniel</Card.Header>
+              {/*<Card.Meta>Joined in 2016</Card.Meta>*/}
+              <Card.Description>
+                Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name='check circle' />
+                65%
+              </a>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Image src='https://react.semantic-ui.com/images/avatar/large/molly.png' wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>Daniel</Card.Header>
+              {/*<Card.Meta>Joined in 2016</Card.Meta>*/}
+              <Card.Description>
+                Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name='check circle' />
+                65%
+              </a>
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Image src='https://react.semantic-ui.com/images/avatar/large/jenny.jpg' wrapped ui={false} />
             <Card.Content>
               <Card.Header>Daniel</Card.Header>
               {/*<Card.Meta>Joined in 2016</Card.Meta>*/}
