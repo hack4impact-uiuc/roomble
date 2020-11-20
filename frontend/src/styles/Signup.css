@@ -1,0 +1,13 @@
+h1 {
+    color:"#C70039";
+}
+
+.main {
+        display:"flex";
+        width: "60%";
+        margin:"auto";
+        background-color:"black";
+        border:"3px #C70039 outset";
+        border-radius : "15px";
+        justify-content:"center";
+}
