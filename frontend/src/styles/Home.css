@@ -2,3 +2,17 @@
   text-align: center;
   margin: 30px;
 }
+
+.homepage a {
+  text-decoration: none;
+}
+
+.homepage h1 {
+  font-size: 50px;
+  padding-top: 250px;
+}
+
+.homepage h2 {
+  font-size: 30px;
+  margin: 30px;
+}
