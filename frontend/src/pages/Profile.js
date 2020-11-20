@@ -3,15 +3,17 @@ import { Button, Icon, Image, Grid, Container} from 'semantic-ui-react'
 
 function Profile() {
   return (
-    <div>
-    <div className = "editprofile"> <Button >Edit Profile</Button> </div>
-    <div><Icon size='huge' name='facebook square' />
+    <div className = "profilePageBackground">
+   
+    <div className = "extraSpacing"> 
+      <Icon size='huge' name='facebook square' />
    
     <Icon size='huge' name='instagram' />
     <Icon size='huge' name='snapchat square' />
+    <span className = "editprofile"><button class="ui pink basic button">Edit Profile</button></span>
     </div>
     
-    <div className = "profilePic"> <Image src='https://media-exp1.licdn.com/dms/image/C5603AQHBntQnGdcTZw/profile-displayphoto-shrink_200_200/0?e=1609977600&v=beta&t=dzx44XwbsZM5uidft3zf8JuBePv0shMtTl_yHKDaG64' size='medium' circular /></div>
+    <div className = "profilePic"><Image src='https://media-exp1.licdn.com/dms/image/C5603AQHBntQnGdcTZw/profile-displayphoto-shrink_200_200/0?e=1609977600&v=beta&t=dzx44XwbsZM5uidft3zf8JuBePv0shMtTl_yHKDaG64' size='medium' circular /></div>
 
   <Grid columns='two' divided>
     <Grid.Row>
@@ -19,16 +21,17 @@ function Profile() {
         <Icon size='huge' name='home'></Icon>
         <p1>Housing</p1>
         <br></br>
-        <p2 className ="moveRight">University Housing</p2>
+        <p2 className ="moveRight">University Public Housing</p2>
       </Grid.Column>
-      <Grid.Column>
+      <Grid.Column> 
       <p1>Brandon Wang</p1>
         <br></br>
-        <p2>brandonwang@illinois.edu</p2>
+        <p2>bmw@illinois.edu</p2>
         <br></br>
         <br></br>
         <Icon size='small' name='circle'></Icon>
-        <p1>looking for roommate;)</p1>
+        <p1>looking for roommate</p1>
+        <br></br>
         <br></br>
         <p1>He/Him/His</p1>
         <br></br>
@@ -50,10 +53,7 @@ function Profile() {
       <Grid.Column>
       <Container>
     <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. 
+      He likes to be a cat. 
     </p>
   </Container>
       </Grid.Column>
@@ -71,7 +71,10 @@ function Profile() {
       <Grid.Column>
       <Container>
     <p>
-    Optional longer Description
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
+      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+      ultricies nec, pellentesque eu, pretium quis, sem. 
     </p>
   </Container>
       </Grid.Column>
@@ -82,7 +85,7 @@ function Profile() {
         <p1 className ="moveRight">1</p1>
         <br></br>
         <br></br>
-        <Button>View Quiz</Button>
+        <button class="ui pink basic button">View Quiz</button>
       </Grid.Column>
     </Grid.Row>
   </Grid>

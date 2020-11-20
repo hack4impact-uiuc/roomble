@@ -3,13 +3,24 @@
     height: 100px;
 }
 .editprofile {
-    text-align: right;
+    float: right;
+    padding-right: 40px;
+    padding-top: 5px;
 }
 .profilePic {
-   
-    margin-left: 750px;
+   float: right;
+  
 
 }
 .moveRight {
     margin-left: 70px
+}
+
+.extraSpacing {
+    padding-bottom: 100px;
+}
+
+.profilePageBackground {
+    background-color: #FFCC5C;
+    min-height: 100vh;
 }
