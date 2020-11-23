@@ -9,15 +9,11 @@ import { Dropdown } from 'semantic-ui-react'
 function SignupPage() {
   return (
     <div className="signupHome">
-
-      <h1>Create your profile</h1>
+      <p class="signupHeader"> Create your profile</p>
         <div className="main">
-          <br></br>
-          <br></br>
           <Form>
-          <br></br>
           <Form.Field>
-          <h2 >Basic Information</h2>
+          <h2 class="signupHeader2" style={{marginTop:"3%"}}>Basic Information</h2>
           <div style={contentAlign}>
             <label className="labelStyle">Name*</label><input type="text" placeholder='First and Last' required/>
             <label className="labelStyle">School*</label><input style={inputAlign} type="text" placeholder='School' required/>
@@ -36,7 +32,7 @@ function SignupPage() {
           </div>
           </Form.Field>
           <Form.Field>
-          <h2>Contact Information</h2>
+          <h2 class="signupHeader2">Contact Information</h2>
           <div style={{display:"flex"}}>
             <label className="labelStyle">Email*</label><input placeholder='Email' type="email" required/>
             <label className="labelStyle">FB</label><input placeholder='Username' />
@@ -50,7 +46,7 @@ function SignupPage() {
           </div>
           </Form.Field>
           <Form.Field>
-          <h2 >Build Your Profile</h2>
+          <h2 class="signupHeader2">Build Your Profile</h2>
           <div style={{display:"flex"}}>
             <label className="labelStyle">Housing Preference* </label><input placeholder='Private' required/>
             <label className="labelStyle"># of Roommates* </label><input type="number" style={inputAlign} placeholder='3' required/>
@@ -66,9 +62,7 @@ function SignupPage() {
           </Form.Field>
           <p style= {{textAlign:"center"}}><Button type='submit' style={{backgroundColor:"#FF6F69", color:"white", borderRadius:"0px",
            fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
-          <br></br>
           </Form>
-          <br></br>
         </div>
         <br></br>
         <br></br>
