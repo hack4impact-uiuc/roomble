@@ -1,11 +1,15 @@
-.homepage {
+.signupHome {
     background-color:#056C89;
+    width:100%;
+    height:100%;
+    margin:auto;
 }
 
 h1 {
     color:white;
     text-shadow: 1px 1px black;
-    font-size:0px;
+    font-size:50;
+    text-align: center;
 }
 
 .main {
@@ -13,7 +17,7 @@ h1 {
         width: 60%;
         margin:auto;
         background-color:white;
-        border:10px #d39308 outset;
+        border:3px #ffcc5c outset;
         border-radius : 15px;
         justify-content:center;
 }

@@ -8,7 +8,7 @@ import { Dropdown } from 'semantic-ui-react'
   
 function SignupPage() {
   return (
-    <div className="homepage">
+    <div className="signupHome">
 
       <h1>Create your profile</h1>
         <div className="main">
@@ -65,10 +65,13 @@ function SignupPage() {
           </div>
           </Form.Field>
           <p style= {{textAlign:"center"}}><Button type='submit' style={{backgroundColor:"#FF6F69", color:"white", borderRadius:"0px",
-           fontSize:"20px", fontWeight:"5", textShadow: "2px 2px black"}}><span id="lab">Submit</span></Button></p>
+           fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
           <br></br>
           </Form>
+          <br></br>
         </div>
+        <br></br>
+        <br></br>
     </div>
   );
 }
