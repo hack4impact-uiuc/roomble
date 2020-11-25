@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+
 // import new components here!!
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
