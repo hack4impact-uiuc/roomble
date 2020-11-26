@@ -1,7 +1,25 @@
 import '../styles/Profile.css';
+import React, { useEffect, useState } from "react";
 import { Button, Icon, Image, Grid, Container} from 'semantic-ui-react'
+import { callApi} from '../utils/api';
 
 function Profile() {
+  const [allValues, setAllValues] = useState([]);
+  
+ //callApi().then(text=> setText(text));
+ 
+ useEffect(() => {
+  const getText = async () => {
+  const data = await callApi();
+  console.log(data);
+  console.log(data[0]['year']);
+  
+  setAllValues([data[0]['name'], data[0]['year'], data[0]['age'], data[0]['gender'], data[0]['major'], data[0]['email'], data[0]['housingType'], data[0]['shortDesc'], data[0]['longDesc'], data[0]['numRoomates']])
+  //await makePost();
+  }
+  getText();
+ }, []);
+
   return (
     <div className = "profile-profilePageBackground">
    
@@ -22,29 +40,29 @@ function Profile() {
         <Icon size='huge' className = 'profile-pink' name='home'></Icon>
         <p1 className = "profilepage-heading">HOUSING</p1>
         <br></br>
-        <p2 className ="profile-moveRight">University Public Housing</p2>
+        <p2 className ="profile-moveRight">{allValues[6]}</p2>
       </Grid.Column>
    
       <Grid.Column> 
-      <p1 className = 'profilepage-name'>Brandon Wang</p1>
+      <p1 className = 'profilepage-name'>{allValues[0]}</p1>
         <br></br>
-        <p2 className = 'profile-textbig'>bmw@illinois.edu</p2>
+        <p2 className = 'profile-textbig'>{allValues[5]}</p2>
         <br></br>
         <br></br>
         <Icon className = 'profilepage-green' size='small' name='circle'></Icon>
         <p1 className = 'profile-textbold'>looking for roommate</p1>
         <br></br>
         <br></br>
-        <p1 className = 'profile-text'>He/Him/His</p1>
+        <p1 className = 'profile-text'>{allValues[3]}</p1>
         <br></br>
-        <p1 className = 'profile-text'>Age: 18</p1>
+        <p1 className = 'profile-text'>Age: {allValues[2]}</p1>
      
       </Grid.Column>
       <Grid.Column>
       <Icon size='huge' className = "profile-pink" name='graduation cap'></Icon>
         <p1 className = "profilepage-heading">MAJOR</p1>
         <br></br>
-        <p1 className ="profile-moveRight">Computer Science</p1>
+        <p1 className ="profile-moveRight">{allValues[4]}</p1>
         
       </Grid.Column>
     </Grid.Row>
@@ -58,7 +76,7 @@ function Profile() {
     <p1 className = 'profile-descriptionheader'>SHORT DESCRIPTION</p1>
     <br></br>
     <p className = 'profile-description'>
-      He likes to be a cat. 
+    {allValues[7]} 
     </p>
   </Container>
       </Grid.Column>
@@ -66,7 +84,7 @@ function Profile() {
       <Icon size='huge' className = 'profile-pink' name='calendar alternate'></Icon>
         <p1 className = "profilepage-heading">YEAR</p1>
         <br></br>
-        <p1 className ="profile-moveRight">Freshman</p1>
+  <p1 className ="profile-moveRight">{allValues[1]}</p1>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>
@@ -77,7 +95,7 @@ function Profile() {
       <Icon size='huge' className = 'profile-pink' name='users'></Icon>
         <p1 className = "profilepage-heading">NUMBER OF ROOMMATES</p1>
         <br></br>
-        <p1 className ="profile-moveRight">1</p1>
+        <p1 className ="profile-moveRight">{allValues[9]}</p1>
         <br></br>
         <br></br>
         <button class="ui pink basic button">View Quiz</button>
@@ -86,19 +104,7 @@ function Profile() {
       <Container>
     <p1 className = 'profile-descriptionheader'>LONG DESCRIPTION</p1>
     <p className = 'profile-description'>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. 
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. 
-      ultricies nec, pellentesque eu, pretium quis, sem. 
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. 
+    {allValues[8]}
     </p>
   </Container>
       </Grid.Column>
