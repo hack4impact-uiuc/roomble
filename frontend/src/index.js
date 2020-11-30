@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './pages/Home';
+import App from './pages/App';
 // import new components here!!
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-ReactDOM.render(
+ReactDOM.render(  
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/" render={(props) => <App {...props} />} />
         {/** Add new routes here!! */}
       </Switch>
     </Router>
