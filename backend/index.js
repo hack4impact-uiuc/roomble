@@ -27,15 +27,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.get('/', async (req, res) => {
   const response = await Profile.find({})
-  res.send(response)
   res.json(response);
 });
 
-
-
-/*app.get('/', async (req, res) => {
-  res.send('Hello World')
-}); */
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
