@@ -25,3 +25,9 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
+
+app.post('/createProfile', async (req, res) => {
+  const newProfile = new Profile(req.body);
+  await newProfile.save()
+  res.json(newProfile);
+})
