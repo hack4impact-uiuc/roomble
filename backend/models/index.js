@@ -1,5 +1,5 @@
-const Profile = require("./profile");
-const User = require("./user");
-const Like = require("./like");
+// const Profile = require("./profile.js");
+// const Likes = require("./like.js");
+// const User = require("./user.js");
 
-module.exports = { Profile, User, Like }
+// module.exports = { Profile, User, Likes }
