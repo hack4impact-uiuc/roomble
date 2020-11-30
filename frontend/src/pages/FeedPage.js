@@ -20,7 +20,7 @@ function FeedPage() {
     <div class="feedpage">
       {profiles.map(value =>
         <Card.Group itemsPerRow={1} style ={{display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
-          <Card style={{margin: "auto", height: "80%", width: "40%"}}>
+          <Card style={{margin: "auto", height: "80%", width: "35%"}}>
               <Card.Content>
                 <div style={{columnCount: 2}}>
                   <Card.Header style={{textAlign: "left", fontSize: "30px", marginTop: "20px", marginBottom: "5px"}}>{value.name}</Card.Header>
@@ -46,8 +46,8 @@ function FeedPage() {
                 <Image style={{height: "500px", width: "100%", marginTop: "15px"}} src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ariana-grande-attends-the-62nd-annual-grammy-awards-at-news-photo-1602693189.jpg"/>
                 
                 <FeedExtra>
-                  <div style={{columnCount: 2, marginTop: "15px"}}>
-                    <Button style={{display: "flex"}}>Chat</Button>
+                  <div style={{columnCount: 1, marginTop: "15px"}}>
+                    {/* <Button style={{display: "flex"}}>Chat</Button> */}
                     <Icon style={{float: "right"}} display="flex" size="big" name="heart outline"/>
                   </div>
                 </FeedExtra>

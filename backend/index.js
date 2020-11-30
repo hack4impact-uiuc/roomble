@@ -15,9 +15,6 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
-const Profile = require("./models/profile.js");
-const Likes = require("./models/like.js");
-const User = require("./models/User.js");
 const Profilerouter = require("./routes/profiles.js");
 
 app.use("/profile" , Profilerouter);
