@@ -16,14 +16,10 @@ var db = mongoose.connection;
 
 const Profile = require("./models/profile.js");
 const Likes = require("./models/Likes.js");
-const User = require("./models/User.js");
+// const User = require("./models/User.js");
 
 app.get('/', async (req, res) => {
   res.send('Hello World')
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
 });
 
 app.post('/createProfile', async (req, res) => {
@@ -31,3 +27,8 @@ app.post('/createProfile', async (req, res) => {
   await newProfile.save()
   res.json(newProfile);
 })
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+});
+

@@ -2,8 +2,10 @@ import { Button, Checkbox, Form } from 'semantic-ui-react'
 import { makePost } from "../utils/api";
 import "../styles/Signup.css";
 //import Select from 'react-select'
+import React, { useEffect, useState } from "react";
 import { Dropdown } from 'semantic-ui-react'
 
+function SignupPage() {
   const contentAlign = {display:"flex", justifyContent:"center"}
   const inputAlign = {marginRight:"5%"}
   const [name, setName] = useState("");
@@ -22,7 +24,6 @@ import { Dropdown } from 'semantic-ui-react'
   const [shortDesc, setShortDesc] = useState("");
   const [longDesc, setLongDesc] = useState("");
   const [quizAnswers, setQuizAnswers] = useState([0, 0, 0, 0]);
-function SignupPage() {
   return (
     <div className="signupHome">
       <p class="signupHeader"> Create your profile</p>
@@ -76,7 +77,7 @@ function SignupPage() {
             <label className="textLabelStyle"> Long Description </label><input className="textAreaStyle" type="textarea" name="textValue" placeholder="Optional Long Description" onChange={event => setLongDesc(event.target.value)} />
           </div>
           </Form.Field>
-          <p style= {{textAlign:"center"}}><Button type='submit' onClick={event => makePost(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoomates, shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white", borderRadius:"0px",
+          <p style= {{textAlign:"center"}}><Button type='submit' onClick={event => makePost(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
            fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
           </Form>
         </div>

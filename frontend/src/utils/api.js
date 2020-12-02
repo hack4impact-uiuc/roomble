@@ -18,7 +18,7 @@ export async function makePost(name, school, year, age, gender, major, phoneNumb
             "scUsername" : scUsername,
             "email" : email,
             "housingType" : housingType,
-            "numRoommates" : numRoommates,
+            "numRoomates" : numRoommates,
             "shortDesc" : shortDesc,
             "longDesc" : longDesc,
             "quizAnswers" : quizAnswers
