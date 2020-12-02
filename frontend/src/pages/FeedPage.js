@@ -47,7 +47,7 @@ function FeedPage() {
                 <FeedExtra>
                   <div style={{columnCount: 1, marginTop: "15px"}}>
                     {/* <Button style={{display: "flex"}}>Chat</Button> */}
-                    <Icon style={{float: "right"}} display="flex" size="big" name="heart outline" onClick={event => makePost(value.)}/>
+                    <Icon style={{float: "right"}} display="flex" size="big" name="heart outline"/>
                   </div>
                 </FeedExtra>
               </Card.Content>
