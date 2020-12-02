@@ -1,7 +1,7 @@
 import '../styles/Profile.css';
 import React, { useEffect, useState } from "react";
 import { Button, Icon, Image, Grid, Container, Popup} from 'semantic-ui-react'
-import { callApi} from '../utils/api';
+import { loadProfile} from '../utils/api';
 
 function Profile() {
   const [allValues, setAllValues] = useState([]);
@@ -22,29 +22,29 @@ function Profile() {
  
  useEffect(() => {
   const getText = async () => {
-  const data = await callApi();
+  const data = await loadProfile("5fadf6bba3e3324e794a1141");
   console.log(data);
-  console.log(data[0]['year']);
-  setName(data[0]['name']);
-  setYear(data[0]['year']);
-  setAge(data[0]['age']);
-  setGender(data[0]['gender']);
-  setMajor(data[0]['major']);
-  setEmail(data[0]['email']);
-  setHousingType(data[0]['housingType']);
-  setShortDesc(data[0]['shortDesc']);
-  setLongDesc(data[0]['longDesc']);
-  setNumRoomates(data[0]['numRoomates']);
-  setfbUsername("@" + data[0]['fbUsername'])
-  setigUsername("@" + data[0]['igUsername'])
-  setscUsername("@" + data[0]['scUsername'])
-  if (data[0]['fbUsername'] == undefined) {
+  console.log(data['year']);
+  setName(data['name']);
+  setYear(data['year']);
+  setAge(data['age']);
+  setGender(data['gender']);
+  setMajor(data['major']);
+  setEmail(data['email']);
+  setHousingType(data['housingType']);
+  setShortDesc(data['shortDesc']);
+  setLongDesc(data['longDesc']);
+  setNumRoomates(data['numRoomates']);
+  setfbUsername("@" + data['fbUsername'])
+  setigUsername("@" + data['igUsername'])
+  setscUsername("@" + data['scUsername'])
+  if (data['fbUsername'] == undefined) {
     setfbUsername("No Facebook")
   }
-  if (data[0]['igUsername'] == undefined) {
+  if (data['igUsername'] == undefined) {
     setigUsername("No Instagram")
   }
-  if (data[0]['scUsername'] == undefined) {
+  if (data['scUsername'] == undefined) {
     setscUsername("No Snapchat")
   }
   }
