@@ -1,7 +1,8 @@
 import '../styles/LoginPage.css';
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Input } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
+import { login } from '../utils/api.js'
 
 const InputExampleInput = () =>
 <div>  
@@ -14,7 +15,8 @@ const InputExampleInput = () =>
 const ButtonExampleShorthand = () => <Button content='Login' />
 
 function LoginPage() {
-    
+   const [username, setUsername] = useState("");
+   const [password, setPassword] = useState("");
 
   return (
     <div>
@@ -22,12 +24,12 @@ function LoginPage() {
       <h4>Username:</h4>
       <h4>Password:</h4>
       <div class="input">
-        <input type="text" placeholder="Username"/>
+        <input type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
         <br/><br/>
-        <input type="text" placeholder="Password"/>
+        <input type="text" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
       </div>
       <h2><u>Forgot Password?</u></h2>
-      <button class="button">Login</button>
+      <button onClick = {() => login[username, password]} class="button">Login</button>
     </div>
     
     
