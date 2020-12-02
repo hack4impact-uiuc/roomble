@@ -8,12 +8,11 @@ function FeedPage() {
 
   const [ profiles, setProfile] = useState([]);
   useEffect(() => {
-    const demoCall = async () => {
+    const loadProfiles = async () => {
       const profiles = await getProfiles();
-      console.log(profiles);
       setProfile(profiles);
     };
-    demoCall();
+    loadProfiles();
   }, []);
 
   return (
@@ -34,7 +33,7 @@ function FeedPage() {
                 </div>
                 <div style={{display: "block", float: "right"}}>
                   <a href="">
-                    <Icon size= "large" name="facebook square" />
+                    <Icon size= "large" name="facebook square" data-inverted="" data-tooltip={value.fbusername} data-position="top left" />
                   </a>
                   <a href="">
                     <Icon size= "large" name="instagram" />
@@ -48,7 +47,7 @@ function FeedPage() {
                 <FeedExtra>
                   <div style={{columnCount: 1, marginTop: "15px"}}>
                     {/* <Button style={{display: "flex"}}>Chat</Button> */}
-                    <Icon style={{float: "right"}} display="flex" size="big" name="heart outline"/>
+                    <Icon style={{float: "right"}} display="flex" size="big" name="heart outline" onClick={event => makePost(value.)}/>
                   </div>
                 </FeedExtra>
               </Card.Content>
