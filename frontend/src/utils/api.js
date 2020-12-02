@@ -1,4 +1,4 @@
-export async function makePost(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoommates, shortDesc, longDesc, quizAnswers) {
+export async function submitProfile(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoommates, shortDesc, longDesc, quizAnswers) {
     
     const response = await fetch("http://localhost:5000/createProfile", {
         method: 'POST',

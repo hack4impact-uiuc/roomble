@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import { makePost } from "../utils/api";
+import { submitProfile } from "../utils/api";
 import "../styles/Signup.css";
 //import Select from 'react-select'
 import React, { useEffect, useState } from "react";
@@ -77,7 +77,7 @@ function SignupPage() {
             <label className="textLabelStyle"> Long Description </label><input className="textAreaStyle" type="textarea" name="textValue" placeholder="Optional Long Description" onChange={event => setLongDesc(event.target.value)} />
           </div>
           </Form.Field>
-          <p style= {{textAlign:"center"}}><Button type='submit' onClick={event => makePost(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
+          <p style= {{textAlign:"center"}}><Button type='submit' onClick={event => submitProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
            fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
           </Form>
         </div>
