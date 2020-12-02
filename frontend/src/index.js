@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
-// import new components here!!
+import LoginPage from './pages/LoginPage'
+import App from'./pages/App'
 import reportWebVitals from './reportWebVitals';
-import 'semantic-ui-css/semantic.min.css'
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -13,6 +13,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
+        <Route exact path="/quiz" render={(props) => <App {...props} />} />
         {/** Add new routes here!! */}
       </Switch>
     </Router>
