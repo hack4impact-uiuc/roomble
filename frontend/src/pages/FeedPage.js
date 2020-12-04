@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../styles/FeedPage.css';
 
-import { Card, Image, Button, Icon, Divider, FeedExtra } from 'semantic-ui-react'
+import { Card, Image, Popup, Icon, Divider, FeedExtra } from 'semantic-ui-react'
 import { getProfiles } from "../utils/api";
 
 function FeedPage() {
@@ -16,15 +16,16 @@ function FeedPage() {
   }, []);
 
   return (
-    <div class="feedpage">
+
+   <div class="feedpage">
       {profiles.map(value =>
         <Card.Group itemsPerRow={1} style ={{display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
-          <Card style={{margin: "auto", height: "80%", width: "35%"}}>
+          <Card style={{margin: "auto", height: "80%", width: "35%", marginBottom: "3%"}}>
               <Card.Content>
                 <div style={{columnCount: 2}}>
                   <Card.Header style={{textAlign: "left", fontSize: "30px", marginTop: "20px", marginBottom: "5px"}}>{value.name}</Card.Header>
                   <div style={{position: "relative"}}>
-                    <Icon style={{float: "right"}} size="huge"  name="circle outline" />
+                    <Icon style={{float: "right", color:"#FF6F69"}} size="huge"  name="circle outline" />
                   </div>
                 </div>
                 <Divider></Divider>
@@ -33,13 +34,13 @@ function FeedPage() {
                 </div>
                 <div style={{display: "block", float: "right"}}>
                   <a href="">
-                    <Icon size= "large" name="facebook square" data-inverted="" data-tooltip={value.fbusername} data-position="top left" />
+                    <Popup content={value.fbUsername} trigger={<Icon size= "large" name="facebook square" />} />
                   </a>
                   <a href="">
-                    <Icon size= "large" name="instagram" />
+                    <Popup content={value.igUsername} trigger={<Icon size= "large" name="instagram" />} />
                   </a>
                   <a href="">
-                    <Icon size= "large" name="snapchat" />
+                    <Popup content={value.scUsername} trigger={<Icon size= "large" name="snapchat" />} />
                   </a>
                 </div>
                 <Image style={{height: "500px", width: "100%", marginTop: "15px"}} src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ariana-grande-attends-the-62nd-annual-grammy-awards-at-news-photo-1602693189.jpg"/>
@@ -53,6 +54,7 @@ function FeedPage() {
               </Card.Content>
           </Card>
         </Card.Group>
+
       )}
     </div>
   );
