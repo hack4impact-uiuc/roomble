@@ -128,7 +128,7 @@ function Profile() {
         <p1 className ="profile-moveRight">{numRoomates}</p1>
         <br></br>
         <br></br>
-        <button class="ui pink basic button">View Quiz</button>
+        <button class="ui blue basic button">View Quiz</button>
       </Grid.Column>
       <Grid.Column>
       <Container>
