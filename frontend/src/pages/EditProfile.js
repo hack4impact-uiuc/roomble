@@ -32,31 +32,31 @@ function EditProfile() {
   
   useEffect(() => {
     const getText = async () => {
-    const data = await loadProfile("5fadf6bba3e3324e794a1141");
-    console.log(data);
-    console.log(data['year']);
-    setName(data['name']);
-    setYear(data['year']);
-    setAge(data['age']);
-    setGender(data['gender']);
-    setMajor(data['major']);
-    setEmail(data['email']);
-    setHousingType(data['housingType']);
-    setShortDesc(data['shortDesc']);
-    setLongDesc(data['longDesc']);
-    setNumRoomates(data['numRoomates']);
-    setPhoneNumber(data['phoneNumber']);
-    setFbUsername(data['fbUsername'])
-    setIgUsername(data['igUsername'])
-    setScUsername(data['scUsername'])
-    setSchool(data["school"]);
-    if (data['fbUsername'] == "" || data['fbUsername'] == undefined) {
+    const profile = await loadProfile("5fadf6bba3e3324e794a1141");
+    console.log(profile);
+    console.log(profile['year']);
+    setName(profile['name']);
+    setYear(profile['year']);
+    setAge(profile['age']);
+    setGender(profile['gender']);
+    setMajor(profile['major']);
+    setEmail(profile['email']);
+    setHousingType(profile['housingType']);
+    setShortDesc(profile['shortDesc']);
+    setLongDesc(profile['longDesc']);
+    setNumRoomates(profile['numRoomates']);
+    setPhoneNumber(profile['phoneNumber']);
+    setFbUsername(profile['fbUsername'])
+    setIgUsername(profile['igUsername'])
+    setScUsername(profile['scUsername'])
+    setSchool(profile["school"]);
+    if (profile['fbUsername'] == "" || profile['fbUsername'] == undefined) {
       setFbUsername("No Facebook")
     }
-    if (data['igUsername'] == "" || data['igUsername'] == undefined) {
+    if (profile['igUsername'] == "" || profile['igUsername'] == undefined) {
       setIgUsername("No Instagram")
     }
-    if (data['scUsername'] == "" || data['scUsername'] == undefined) {
+    if (profile['scUsername'] == "" || profile['scUsername'] == undefined) {
       setScUsername("No Snapchat")
     }
     }

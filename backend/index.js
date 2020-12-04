@@ -25,9 +25,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //const Pusheens = require("./models/Pusheens.js");
 
 
-app.get('/profilepage/:userid', async (req, res) => {
-  const {userid} = req.params;
-  const response = await Profile.findById(userid)
+app.get('/profilepage/:userId', async (req, res) => {
+  const {userId} = req.params;
+  const response = await Profile.findById(userId)
   res.json(response);
 });
 

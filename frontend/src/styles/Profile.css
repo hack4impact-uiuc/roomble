@@ -22,10 +22,10 @@
     padding-bottom: 100px;
 }
 
-.profilePageBackground {
-    background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);
+/*.profilePageBackground {
+    background-image: linear-gradient(to bottom right,#DAE2F8, #D6A4A4);
     min-height: 100vh;
-} 
+} */
 
 .profile-facebook {
     color: #4267B2;

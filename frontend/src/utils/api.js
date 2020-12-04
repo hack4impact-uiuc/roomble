@@ -1,5 +1,5 @@
-export async function loadProfile(userid) {
-    const response = await fetch(`http://localhost:5000/profilepage/${userid}`);
+export async function loadProfile(userId) {
+    const response = await fetch(`http://localhost:5000/profilepage/${userId}`);
    
     const text = await response.json();
     console.log(text)
