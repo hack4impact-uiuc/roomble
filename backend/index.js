@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const {Profile} = require("./models")
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
