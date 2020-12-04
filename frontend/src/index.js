@@ -4,6 +4,7 @@ import './index.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
 
 import FeedPage from './pages/FeedPage';
 
