@@ -15,6 +15,7 @@ h1 {
     font-size: 50px;
     position: relative;
     top: 20px;
+    color: #056c89ff;
 }
 
 h4 {
@@ -24,6 +25,7 @@ h4 {
     top: 210px;
     padding: 7px;
     left: 500px;
+    
 }
 
 h2 {
@@ -31,6 +33,7 @@ h2 {
     top: 110px;
     font-size: 12px;
     text-align: center;
+    
 }
 
 .button {
@@ -39,4 +42,21 @@ h2 {
     padding: 10px 30px;
     top: 120px;
     left: 590px;
+    background-color: #056c89ff;
+    border: #056c89ff;
+    color: white;
 }
+
+.inputOne {
+    -webkit-text-security: disc;
+    text-security: disc;
+    position: relative;
+    top: 0px;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+
+body {
+    background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
+} 

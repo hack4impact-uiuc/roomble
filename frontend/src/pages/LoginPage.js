@@ -25,11 +25,13 @@ function LoginPage() {
       <h4>Password:</h4>
       <div class="input">
         <input type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
-        <br/><br/>
+        
+        </div>
+        <div class="inputOne">
         <input type="text" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
       </div>
       <h2><u>Forgot Password?</u></h2>
-      <button onClick = {() => login[username, password]} class="button">Login</button>
+      <button onClick = {() => login(username, password)} class="button">Login</button>
     </div>
     
     
