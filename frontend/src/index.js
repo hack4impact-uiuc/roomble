@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage'
-import Register from'./pages/Register'
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -14,7 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
-        <Route exact path="/register" render={(props) => <Register {...props} />} />
+        
         {/** Add new routes here!! */}
       </Switch>
     </Router>
