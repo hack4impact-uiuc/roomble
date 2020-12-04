@@ -5,6 +5,7 @@ import { updateProfile } from "../utils/api";
 import { loadProfile } from "../utils/api";
 import React, { useEffect, useState } from "react";
 import { Dropdown } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 function EditProfile() {
   const contentAlign = {display:"flex", justifyContent:"center"}
@@ -63,6 +64,7 @@ function EditProfile() {
    }, []);
   return (
     <div className="signupHome">
+      <Button><Link to="/profile">Go Back</Link></Button>
       <p class="signupHeader"> Edit your profile</p>
         <div className="main">
           <Form>
