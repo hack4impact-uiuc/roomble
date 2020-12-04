@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 
-const User = require('../models/User');
+const { User } = require('../models');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
