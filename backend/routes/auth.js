@@ -5,22 +5,20 @@ const User = require('../models/User');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
-    User.register(new User({ 
+    User.register(new User({ name: req.body.name,
         username: req.body.username,
         }), req.body.password, function(err) {
 
         if (err) {
             return next(err);
         }   
-
         res.sendStatus(200);
     });
     
 });
 
-router.post('/login', async (req, res, next) => {
-    console.log("hi im here");
-    console.log(req.user);
+router.post('/register', async (req, res, next) => {
+
     passport.authenticate('local', {session: true })(req, res, function() {
         res.sendStatus(200);
     });
