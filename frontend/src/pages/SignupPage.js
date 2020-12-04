@@ -3,27 +3,31 @@ import { submitProfile } from "../utils/api";
 import "../styles/Signup.css";
 //import Select from 'react-select'
 import React, { useEffect, useState } from "react";
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown} from 'semantic-ui-react'
 
 function SignupPage() {
   const contentAlign = {display:"flex", justifyContent:"center"}
   const inputAlign = {marginRight:"5%"}
   const [name, setName] = useState("");
   const [school, setSchool] = useState(""); //add dropdown
-  const [year, setYear] = useState(""); //add dropdown
+  const [year, setYear] = useState("freshman"); //add dropdown
   const [age, setAge] = useState(0); 
-  const [gender, setGender] = useState(""); //add dropdown
+  const [gender, setGender] = useState("gender"); //add dropdown
   const [major, setMajor] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fbUsername, setFbUsername] = useState("");
   const [igUsername, setIgUsername] = useState("");
   const [scUsername, setScUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [housingType, setHousingType] = useState(""); //add dropdown
+  const [housingType, setHousingType] = useState("private"); //add dropdown
   const [numRoomates, setNumRoomates] = useState(0);
   const [shortDesc, setShortDesc] = useState("");
   const [longDesc, setLongDesc] = useState("");
   const [quizAnswers, setQuizAnswers] = useState([0, 0, 0, 0]);
+  const yearOptions = [{key:"freshman", text:"Freshman", value:"freshman"},{key:"sophomore", text:"Sophomore", value:"sophomore"}, {key:"junior", text:"Junior", value:"junior"}, {key:"senior", text:"Senior", value:"senior"}, {key:"grad", text:"Grad", value:"grad"}];
+  const genderOptions = [{key:"male", text:"Male", value:"male"},{key:"female", text:"Female", value:"female"}, {key:"non-binary", text:"Non-binary", value:"non-binary"}, {key:"other", text:"Other", value:"other"}];
+  const housingOptions = [{key:"private", text:"Private", value:"private"},{key:"undergrad-dorms", text:"Undergrad Dorms", value:"undergrad-dorms"}, {key:"grad-dorms", text:"Grad Dorms", value:"grad-dorms"}, {key:"off-campus", text:"Off Campus", value:"off-campus"}];
+  
   return (
     <div className="signupHome">
       <p class="signupHeader"> Create your profile</p>
@@ -44,8 +48,14 @@ function SignupPage() {
           </Form.Field>
           <Form.Field>
           <div style={contentAlign}>
-            <label className="labelStyle">Gender*</label><input type="text" placeholder='Gender' onChange={event => setGender(event.target.value)} required/>
-            <label className="labelStyle">Year*</label><input style={inputAlign} type="text" placeholder='Year' onChange={event => setYear(event.target.value)} required/>
+            <label className="labelStyle">Gender*</label>
+            <div style={{width:"23%"}}>
+            <Dropdown size placeholder='Gender' search selection options={genderOptions} onChange={event => setGender(event.target.value)} />
+            </div>
+            <label className="labelStyle" style={{marginLeft:"10%"}}>Year*</label>
+            <div style={{width:"35%"}}>
+            <Dropdown size placeholder='Year' search selection options={yearOptions} onChange={event => setYear(event.target.value)} />
+            </div>
           </div>
           </Form.Field>
           <Form.Field>
@@ -65,7 +75,10 @@ function SignupPage() {
           <Form.Field>
           <h2 class="signupHeader2">Build Your Profile</h2>
           <div style={{display:"flex"}}>
-            <label className="labelStyle">Housing Preference* </label><input placeholder='Private' onChange={event => setHousingType(event.target.value)} required/>
+            <label className="labelStyle">Housing Preference* </label>
+            <div style={{width:"35%"}}>
+         <Dropdown size placeholder='Housing' search selection options={housingOptions} onChange={event => setHousingType(event.target.value)} />
+            </div>
             <label className="labelStyle"># of Roommates* </label><input type="number" style={inputAlign} placeholder='3' onChange={event => setNumRoomates(event.target.value)} required/>
           </div>
           <br></br>
@@ -77,7 +90,7 @@ function SignupPage() {
             <label className="textLabelStyle"> Long Description </label><input className="textAreaStyle" type="textarea" name="textValue" placeholder="Optional Long Description" onChange={event => setLongDesc(event.target.value)} />
           </div>
           </Form.Field>
-          <p style= {{textAlign:"center"}}><Button type='submit' onClick={event => submitProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
+          <p style= {{textAlign:"center"}}><Button type='submit' id="button" onClick={event => submitProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
            fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
           </Form>
         </div>
@@ -85,6 +98,7 @@ function SignupPage() {
         <br></br>
     </div>
   );
+  
 }
 
 export default SignupPage;
