@@ -14,7 +14,7 @@ const InputExampleInput = () =>
 
 const ButtonExampleShorthand = () => <Button content='Login' />
 
-function LoginPage() {
+function LoginPage(props) {
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
 
@@ -31,11 +31,19 @@ function LoginPage() {
         <input type="text" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
       </div>
       <h2><u>Forgot Password?</u></h2>
-      <button onClick = {() => login(username, password)} class="button">Login</button>
+      <button onClick = {() => login(username, password).then(data => {
+        if (data.status != 401) {
+          props.history.push('/feed');
+          
+        }
+        console.log(data);
+      }
+        )} class="button">Login</button>
     </div>
     
     
   );
+  
 }
 
 export default LoginPage;

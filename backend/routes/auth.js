@@ -15,6 +15,7 @@ router.post('/register', async (req, res, next) => {
 
         res.sendStatus(200);
     });
+    
 });
 
 router.post('/login', async (req, res, next) => {
