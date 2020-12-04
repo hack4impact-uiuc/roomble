@@ -4,7 +4,6 @@ import { Button, Icon, Image, Grid, Container, Popup} from 'semantic-ui-react'
 import { loadProfile} from '../utils/api';
 
 function Profile() {
-  const [allValues, setAllValues] = useState([]);
   const [name, setName] = useState();
   const [year, setYear] = useState();
   const [age, setAge] = useState();
@@ -35,16 +34,16 @@ function Profile() {
   setShortDesc(data['shortDesc']);
   setLongDesc(data['longDesc']);
   setNumRoomates(data['numRoomates']);
-  setfbUsername("@" + data['fbUsername'])
-  setigUsername("@" + data['igUsername'])
-  setscUsername("@" + data['scUsername'])
-  if (data['fbUsername'] == undefined) {
+  setfbUsername(data['fbUsername'])
+  setigUsername(data['igUsername'])
+  setscUsername(data['scUsername'])
+  if (data['fbUsername'] == "" || data['fbUsername'] == undefined) {
     setfbUsername("No Facebook")
   }
-  if (data['igUsername'] == undefined) {
+  if (data['igUsername'] == "" || data['igUsername'] == undefined) {
     setigUsername("No Instagram")
   }
-  if (data['scUsername'] == undefined) {
+  if (data['scUsername'] == "" || data['scUsername'] == undefined) {
     setscUsername("No Snapchat")
   }
   }

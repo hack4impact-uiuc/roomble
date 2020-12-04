@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 // import new components here!!
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +17,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/profile" render={(props) => <Profile {...props} />} />
-        
+        <Route exact path="/editprofile" render={(props) => <EditProfile {...props} />} />
         {/** Add new routes here!! */}
       </Switch>
     </Router>
