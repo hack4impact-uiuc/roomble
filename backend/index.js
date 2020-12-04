@@ -36,22 +36,9 @@ passport.deserializeUser(User.deserializeUser());
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
- const Profile = require("./models/profile.js");
-// const Likes = require("./models/Likes.js");
-// const User = require("./models/User.js");
 
 app.get('/', async (req, res) => {
   res.send('Hello World')
-});
-
-app.use('/auth/', authRoutes)
-
-app.get('/getProfile', async (req, res) => {
-    if (req.isAuthenticated()) {
-        req.user.username
-    } else {
-        res.send('Not logged in!')
-    }
 });
 
 app.listen(port, () => {

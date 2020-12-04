@@ -19,8 +19,6 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
-    console.log("hi im here");
-    console.log(req.user);
     passport.authenticate('local', {session: true })(req, res, function() {
         res.sendStatus(200);
     });
