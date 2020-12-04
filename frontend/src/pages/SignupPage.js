@@ -10,16 +10,16 @@ function SignupPage() {
   const inputAlign = {marginRight:"5%"}
   const [name, setName] = useState("");
   const [school, setSchool] = useState(""); //add dropdown
-  const [year, setYear] = useState("freshman"); //add dropdown
+  const [year, setYear] = useState(""); //add dropdown
   const [age, setAge] = useState(0); 
-  const [gender, setGender] = useState("gender"); //add dropdown
+  const [gender, setGender] = useState(""); //add dropdown
   const [major, setMajor] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fbUsername, setFbUsername] = useState("");
   const [igUsername, setIgUsername] = useState("");
   const [scUsername, setScUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [housingType, setHousingType] = useState("private"); //add dropdown
+  const [housingType, setHousingType] = useState(""); //add dropdown
   const [numRoomates, setNumRoomates] = useState(0);
   const [shortDesc, setShortDesc] = useState("");
   const [longDesc, setLongDesc] = useState("");
@@ -50,11 +50,11 @@ function SignupPage() {
           <div style={contentAlign}>
             <label className="labelStyle">Gender*</label>
             <div style={{width:"23%"}}>
-            <Dropdown size placeholder='Gender' search selection options={genderOptions} onChange={event => setGender(event.target.value)} />
+            <Dropdown size placeholder='Gender' search selection options={genderOptions} onChange={(event, data) => setGender(data.value)} />
             </div>
             <label className="labelStyle" style={{marginLeft:"10%"}}>Year*</label>
             <div style={{width:"35%"}}>
-            <Dropdown size placeholder='Year' search selection options={yearOptions} onChange={event => setYear(event.target.value)} />
+            <Dropdown size placeholder='Year' search selection options={yearOptions} onChange={(event, data) => setYear(data.value)} />
             </div>
           </div>
           </Form.Field>
@@ -77,7 +77,7 @@ function SignupPage() {
           <div style={{display:"flex"}}>
             <label className="labelStyle">Housing Preference* </label>
             <div style={{width:"35%"}}>
-         <Dropdown size placeholder='Housing' search selection options={housingOptions} onChange={event => setHousingType(event.target.value)} />
+         <Dropdown size placeholder='Housing' search selection options={housingOptions} onChange={(event, data) => setHousingType(data.value)} />
             </div>
             <label className="labelStyle"># of Roommates* </label><input type="number" style={inputAlign} placeholder='3' onChange={event => setNumRoomates(event.target.value)} required/>
           </div>
