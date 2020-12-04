@@ -17,6 +17,7 @@ var db = mongoose.connection;
 const Profile = require("./models/profile.js");
 const Likes = require("./models/Likes.js");
 const User = require("./models/User.js");
+const user = require('./models/User.js');
 
 
 app.get('/likes/:userId', async (req, res) => {
@@ -24,6 +25,24 @@ app.get('/likes/:userId', async (req, res) => {
   const ids = await Likes.find({"userId": userId});
   const profiles = await Profile.find({"_id": { $in: ids[0].likedUsers} });
   res.send(profiles);
+})
+
+app.post('/likes/:userId', async (req, res) => {
+  const {userId} = req.params;
+  const {likedUser} = req.body;
+  const userLikes = await Likes.findOne({userId});
+  console.log(userId);
+  console.log(likedUser);
+  console.log(userLikes)
+  
+  if(userLikes.likedUsers.includes(likedUser)) {
+    //await Likes.findByIdAndUpdate(userId, {$pull: {likedUsers: likedUser}})
+    await Likes.findOneAndUpdate({userId}, {$pull: {likedUsers: likedUser}})
+  } else
+  {
+    await Likes.findOneAndUpdate({userId}, {$push: {likedUsers: likedUser}})
+  }
+
 })
 
 app.get('')

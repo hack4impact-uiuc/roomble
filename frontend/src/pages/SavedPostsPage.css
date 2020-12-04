@@ -19,6 +19,19 @@
     padding-bottom: 30px;
 }
 
+.heart {
+    padding-bottom: 32px;
+    padding-right: 30px;
+    border: black;
+}
+
+.other {
+    float: right;
+    padding-top: 1000px;
+    position: absolute;
+    
+
+}
 /*
 FF6F69  Bittersweet (bright red sorta)
 056C89  Blue Sapphire 
