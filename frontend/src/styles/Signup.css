@@ -61,13 +61,15 @@
 }
 
 #buttonSubmit button:hover {
-    background-color: #FF6F6988;
-    color: black;
-    text-shadow:0px 0px black;
+    /* background-color: #FF6F6988; */
+    background-image: linear-gradient(to bottom right, #B4534E, #DD625C, #EE6661, #FF6F69, #FF918C, #FFA7A3);
+    color:white;
+    text-shadow:1px 1px black;
 }
 
 #buttonSubmit button {
-    background-color:#FF6F69;
+    /*background-color:#FF6F69;*/
+    background-image: linear-gradient(to bottom right, #FFA7A3, #FF918C, #FF6F69,#EE6661, #DD625C, #B4534E);
     color:white;
     font-size:20px;
     font-weight:5;
