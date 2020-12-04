@@ -90,8 +90,7 @@ function SignupPage() {
             <label className="textLabelStyle"> Long Description </label><input className="textAreaStyle" type="textarea" name="textValue" placeholder="Optional Long Description" onChange={event => setLongDesc(event.target.value)} />
           </div>
           </Form.Field>
-          <p style= {{textAlign:"center"}}><Button type='submit' id="button" onClick={event => submitProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
-           fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Submit</span></Button></p>
+          <p id="buttonSubmit" style= {{textAlign:"center"}}><Button type='submit' onClick={event => submitProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)}><span id="lab">Submit</span></Button></p>
           </Form>
         </div>
         <br></br>

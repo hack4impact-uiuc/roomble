@@ -59,3 +59,17 @@
     width:300px;
     margin-right:5%;
 }
+
+#buttonSubmit button:hover {
+    background-color: #FF6F6988;
+    color: black;
+    text-shadow:0px 0px black;
+}
+
+#buttonSubmit button {
+    background-color:#FF6F69;
+    color:white;
+    font-size:20px;
+    font-weight:5;
+    text-shadow:1px 1px black;
+}
