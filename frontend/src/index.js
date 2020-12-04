@@ -9,6 +9,8 @@ import EditProfile from './pages/EditProfile';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 
+import FeedPage from './pages/FeedPage';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -19,6 +21,7 @@ ReactDOM.render(
         <Route exact path="/profile" render={(props) => <Profile {...props} />} />
         <Route exact path="/editprofile" render={(props) => <EditProfile {...props} />} />
         {/** Add new routes here!! */}
+        <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
       </Switch>
     </Router>
   </React.StrictMode>,
