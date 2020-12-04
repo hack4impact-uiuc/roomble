@@ -16,7 +16,7 @@ const authRoutes = require('./routes/auth.js');
 const app = express();
 const port = 5000;
 
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -39,6 +39,7 @@ var db = mongoose.connection;
 
 const Profilerouter = require("./routes/profiles.js");
 
+app.use("/auth", authRoutes);
 app.use("/profile" , Profilerouter);
 
 app.get('/', async (req, res) => {
