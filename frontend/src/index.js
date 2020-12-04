@@ -6,6 +6,8 @@ import LoginPage from './pages/LoginPage'
 import Register from'./pages/Register'
 import reportWebVitals from './reportWebVitals';
 
+import FeedPage from './pages/FeedPage';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -16,6 +18,7 @@ ReactDOM.render(
         <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
         <Route exact path="/register" render={(props) => <Register {...props} />} />
         {/** Add new routes here!! */}
+        <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
       </Switch>
     </Router>
   </React.StrictMode>,

@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express');
+const router = express.Router();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require("mongoose");
@@ -41,6 +42,9 @@ app.post('/register', async (req, res) => {
   await newProfile.save()
   res.json(newProfile);
 })
+const Profilerouter = require("./routes/profiles.js");
+
+app.use("/profile" , Profilerouter);
 
 app.get('/', async (req, res) => {
   res.send('Hello World')
