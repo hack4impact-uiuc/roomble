@@ -6,6 +6,10 @@ var ProfileSchema = new Schema({
     type: String,
     required: true,
   },
+  userId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   school: {
     type: String,
     required: true,
