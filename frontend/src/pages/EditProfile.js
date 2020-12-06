@@ -64,7 +64,7 @@ function EditProfile() {
    }, []);
   return (
     <div className="signupHome">
-      <Button><Link to="/profile">Go Back</Link></Button>
+   <Button><Link to="/profile">Go Back</Link></Button> 
       <p class="signupHeader"> Edit your profile</p>
         <div className="main">
           <Form>
@@ -125,7 +125,7 @@ function EditProfile() {
             <label className="textLabelStyle"> Long Description </label><input value = {longDesc} className="textAreaStyle" type="textarea" name="textValue" placeholder="Optional Long Description" onChange={event => setLongDesc(event.target.value)} />
           </div>
           </Form.Field>
-          <p style= {{textAlign:"center"}}><Button type='submit' id="button" onClick={event => updateProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
+          <p id="buttonSubmit" style= {{textAlign:"center"}}><Button type='submit' id="button" onClick={event => updateProfile(name, school, year, parseInt(age), gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, parseInt(numRoomates), shortDesc, longDesc, quizAnswers)} style={{backgroundColor:"#FF6F69", color:"white",
            fontSize:"20px", fontWeight:"5", textShadow: "1px 1px black"}}><span id="lab">Save</span></Button></p>
           </Form>
         </div>
