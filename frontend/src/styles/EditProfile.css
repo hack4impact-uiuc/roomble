@@ -1,0 +1,78 @@
+.signupHome {
+    /*background-color:#056C89;*/
+    background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);
+    width:100%;
+    height:100%;
+    margin:auto;
+    min-height: 100vh;
+}
+
+.signupHeader {
+    color:white;
+    text-shadow: 2px 2px #024658;
+    font-size:50px;
+    text-align: center;
+}
+
+.main {
+        display:flex;
+        width: 60%;
+        margin:auto;
+        background-color:white;
+        /*border:3px #056C89 outset;*/
+        border-radius : 15px;
+        justify-content:center;
+        margin-top:-3%;
+}
+
+.signupHeader2 {
+    color:#056C89;
+    font-style:italic;
+    margin-top:5%;
+    text-shadow: 1px 1px gray;
+}
+
+.labelStyle {
+    color:#056C89; 
+    font-size:16px;
+    width:48%;
+    margin-bottom:15px;
+    text-shadow: 1px 1px gray;
+    font-weight:5;
+    margin-right:5%;
+    margin-left:5%;
+}
+
+.textLabelStyle {
+    color:#056C89; 
+    font-size:16px;
+    height:20%;
+    text-shadow:1px 1px gray;
+    margin-right:10%;
+    margin-left:5%;
+    width:25%;
+
+
+
+}
+.textAreaStyle {
+    height:75px;
+    width:300px;
+    margin-right:5%;
+}
+
+#buttonSubmit button:hover {
+    /* background-color: #FF6F6988; */
+    background-image: linear-gradient(to bottom right, #B4534E, #DD625C, #EE6661, #FF6F69, #FF918C, #FFA7A3);
+    color:white;
+    text-shadow:1px 1px black;
+}
+
+#buttonSubmit button {
+    /*background-color:#FF6F69;*/
+    background-image: linear-gradient(to bottom right, #FFA7A3, #FF918C, #FF6F69,#EE6661, #DD625C, #B4534E);
+    color:white;
+    font-size:20px;
+    font-weight:5;
+    text-shadow:1px 1px black;
+}
