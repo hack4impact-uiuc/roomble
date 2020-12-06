@@ -12,8 +12,8 @@ function SavedPostsPage() {
     setProfiles(profiles)
   }
 
-  const unlike = async (id) => {
-    await likeProfile(id);
+  const unlike = async (userId) => {
+    await likeProfile(userId);
     await loadSavedProfiles();
   }
 
@@ -42,7 +42,7 @@ function SavedPostsPage() {
                   <Card.Description>{profile.shortDesc}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                      <Button compact basic floated='right' onClick = {unlike(profile._id)}>
+                      <Button compact basic floated='right' onClick = {() => unlike(profile._id)}>
                         <Icon size='small' class="other" name='heart outline' color='purple'/>
                       </Button>
                   </Card.Content>

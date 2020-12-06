@@ -43,7 +43,6 @@ app.use("/auth", authRoutes);
 app.use("/profile" , Profilerouter);
 
 app.get('/likes/', async (req, res) => {
-  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     const userId = req.user._id;
     const ids = await Likes.find({"userId": userId});
