@@ -4,7 +4,7 @@ import { Button, Icon, Image, Grid, Container, Popup} from 'semantic-ui-react'
 import { loadProfile} from '../utils/api';
 import { Link } from "react-router-dom";
 
-function Profile() {
+function ProfilePage() {
   const [name, setName] = useState();
   const [year, setYear] = useState();
   const [age, setAge] = useState();
@@ -144,4 +144,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default ProfilePage;

@@ -1,0 +1,44 @@
+.page {
+    background-color: #FFCC5C;
+    width: 100%;
+    max-height: 100%;
+    min-height: 100vh;
+
+}
+
+.title {
+    color: #056C89;
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.cards {
+    padding: 0px 50px;
+    padding-bottom: 30px;
+}
+
+.heart {
+    padding-bottom: 32px;
+    padding-right: 30px;
+    border: black;
+}
+
+.other {
+    float: right;
+    padding-top: 1000px;
+    position: absolute;
+
+
+}
+
+.heartButton {
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
+FF6F69  Bittersweet (bright red sorta)
+056C89  Blue Sapphire 
+FFCC5C  Maize Crayola (yellow)
+*/

@@ -2,7 +2,7 @@ import '../styles/Register.css';
 import React, { useState } from "react";
 import { register } from '../utils/api.js'
 
-function LoginPage(props) {
+function RegisterPage(props) {
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
 
@@ -28,4 +28,4 @@ function LoginPage(props) {
   
 }
 
-export default LoginPage;
+export default RegisterPage;
