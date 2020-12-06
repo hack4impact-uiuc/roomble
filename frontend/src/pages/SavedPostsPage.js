@@ -1,6 +1,6 @@
 import './SavedPostsPage.css';
 import React, { useEffect, useState } from "react";
-import { Button, Card, Image, Icon, Dropdown} from 'semantic-ui-react'
+import { Button, Card, Image, Icon, Dropdown, FeedExtra} from 'semantic-ui-react'
 import { getLikedProfiles, likeProfile } from '../utils/api';
 
 function SavedPostsPage() {
@@ -18,7 +18,8 @@ function SavedPostsPage() {
   }
 
   useEffect(() => {
-    loadSavedProfiles();  
+    loadSavedProfiles();
+
   }, []);
 
   return (
@@ -31,34 +32,34 @@ function SavedPostsPage() {
           {profiles.map(profile => (
 
             <Card>
-                {/*<Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />*/}
-                <Icon.Group size='huge'>
-                  <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
-                  <Icon class="heart" corner="bottom right" name='heart' color='pink'/>
- 
-                </Icon.Group>
+                <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
+
                 <Card.Content>
                   <Card.Header>{profile.name}</Card.Header>
                   <Card.Description>{profile.shortDesc}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                      <Button compact basic floated='right' onClick = {() => unlike(profile._id)}>
-                        <Icon size='small' class="other" name='heart outline' color='purple'/>
-                      </Button>
-                  </Card.Content>
+                  <div style={{columnCount: 1}}>
+                    <Icon style={{float: "right"}} display="flex" class="heartButton" size="big" name="heart filled" color="pink" onClick = {() => unlike(profile._id)}/>
+                  </div>
+                </Card.Content>
             </Card>
           ))}
-          {/*
+        
             <Card>
-                  <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
-                  <Card.Content>
-                    <Card.Header>
-                      Hey 
-                    </Card.Header>
-                    <Card.Description>Hey fjlsdkf dsjlfk sdalfkj sadlfkj asdlfkj sadlfkj sadlfkjas dlfkjasd flkjdsa </Card.Description>
-                  </Card.Content>
-
-              </Card>*/}
+              <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+                
+              <Card.Content>
+                <Card.Header>Test</Card.Header>
+                <Card.Description>jsdflkdsjaf lksadjf lsakdfj lsakdfj asldkfj asdlkfj adslfk </Card.Description>
+              </Card.Content>
+              <FeedExtra>
+                  <div style={{columnCount: 1}}>
+                    <Icon style={{float: "right"}} display="flex" class="heartButton" size="big" name="heart filled" color="pink" onClick = {() => alert("hi")}/>
+                  </div>
+              </FeedExtra>
+                
+            </Card>
           </Card.Group>
           
       </div>

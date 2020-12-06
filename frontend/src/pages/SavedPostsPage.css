@@ -29,8 +29,13 @@
     float: right;
     padding-top: 1000px;
     position: absolute;
-    
 
+
+}
+
+.heartButton {
+    margin-left: auto;
+    margin-right: auto;
 }
 /*
 FF6F69  Bittersweet (bright red sorta)
