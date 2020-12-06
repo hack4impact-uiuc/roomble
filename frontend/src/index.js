@@ -6,6 +6,7 @@ import SignupPage from './pages/SignupPage'
 // import new components here!!
 import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
 
 import FeedPage from './pages/FeedPage';
 
