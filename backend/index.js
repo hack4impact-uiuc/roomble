@@ -42,10 +42,6 @@ app.use("/profile" , profileRoute);
 app.use("/register", registerRoute)
 
 
-//Bind connection to error event (to get notification of connection errors)
-
-//const Pusheens = require("./models/Pusheens.js");
-
 
 app.get('/profilepage/', async (req, res) => {
   if (req.isAuthenticated()) {
@@ -87,11 +83,7 @@ app.post('/updateProfile', async (req, res) => {
       new: true,
       upsert: true // Make this update into an upsert
     }); 
-    //console.log(req.body);
-
-    //const newObj = new Profile(req.body);
-    //await newObj.save()
-    //res.json(newObj);
+   
   } else {
     res.sendStatus(401);
   }
