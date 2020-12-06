@@ -7,17 +7,13 @@ function LoginPage(props) {
    const [password, setPassword] = useState("");
 
   return (
-    <div className="login-page">
-      <h1>Roomble</h1>
-      <h4>Username:</h4>
-      <h4>Password:</h4>
-      <div className="lp-input-one">
-        <input className="lp-input" type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
+    <div className="login">
+      <h1>Login</h1>
+      <div className="login-input">
+        <input type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
+        <br/><br/>
+        <input type="password" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
       </div>
-      <div className="lp-input-two">
-        <input className="lp-input" type="text" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
-      </div>
-      <h2><u>Forgot Password?</u></h2>
       <button onClick = {() => login(username, password).then(data => {
         if (data.status != 401) {
           props.history.push('/feed');

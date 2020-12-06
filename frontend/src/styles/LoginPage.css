@@ -1,60 +1,31 @@
-.login-page {
+.login {
   height: 100vh;
   background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
-}
-
-.lp-input {
-  position: relative;
-  top: 100px;
-  padding: 10px 10px;
-  right: -70px;
-}
-
-.lp-input-one {
   text-align: center;
 }
 
-.lp-input-two {
-  -webkit-text-security: disc;
-  text-security: disc;
-  position: relative;
-  top: 0px;
-  padding: 10px 10px;
+.login-input {
+  margin-top: 5rem;
   text-align: center;
 }
 
-.login-page h1 {
+.login input {
+  padding: 1rem;
+}
+
+.login h1 {
+  padding-top: 15vh;
   font-family: "Raleway", sans-serif;
   text-align: center;
   font-size: 50px;
-  position: relative;
-  top: 20px;
   color: #056c89ff;
 }
 
-.login-page h2 {
-  position: relative;
-  top: 110px;
-  font-size: 12px;
-  text-align: center;
-}
-
-.login-page h4 {
-  font-family: "Raleway", sans-serif;
-  font-weight: normal;
-  position: relative;
-  top: 210px;
-  padding: 7px;
-  left: 500px;
-}
-
-.login-page button {
-  position: relative;
+.login button {
   text-align: center;
   padding: 10px 30px;
-  top: 120px;
-  left: 590px;
   background-color: #056c89ff;
   border: #056c89ff;
   color: white;
+  margin-top: 2rem;
 }

@@ -1,45 +1,31 @@
-
-
-input {
-    position: relative;
-    top: 100px;
-    padding: 10px 10px;
-    right: 0px;
-}
-.inputOne {
-    -webkit-text-security: disc;
-    text-security: disc;
-    position: relative;
-    top: 0px;
-    padding: 10px 10px;
-    text-align: center;
+.register {
+  height: 100vh;
+  background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
+  text-align: center;
 }
 
-h1 {
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    font-size: 50px;
-    position: relative;
-    top: 20px;
-    color: #056c89ff;
+.reg-input {
+  margin-top: 5rem;
+  text-align: center;
 }
 
-
-
-  
-
-.button {
-    position: relative;
-    text-align: center;
-    padding: 10px 30px;
-    top: 120px;
-    left: 590px;
-    background-color: #056c89ff;
-    border: #056c89ff;
-    color: white;
+.register input {
+  padding: 1rem;
 }
 
+.register h1 {
+  padding-top: 15vh;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color: #056c89ff;
+}
 
-body {
-    background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
-} 
+.register button {
+  text-align: center;
+  padding: 10px 30px;
+  background-color: #056c89ff;
+  border: #056c89ff;
+  color: white;
+  margin-top: 2rem;
+}
