@@ -1,6 +1,6 @@
 export async function submitProfile(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoommates, shortDesc, longDesc, quizAnswers) {
     
-    const response = await fetch("http://localhost:5000/createProfile", {
+    const response = await fetch("http://localhost:5000/profiles", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -40,7 +40,7 @@ export async function register(username, password) {
 }
 
 export async function getProfiles() {
-    const response = await fetch("http://localhost:5000/profile");
+    const response = await fetch("http://localhost:5000/profiles");
     const profiles = await response.json();
     return profiles;
 }

@@ -1,19 +1,19 @@
-.login {
+.register {
   height: 100vh;
   background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
   text-align: center;
 }
 
-.login-input {
+.reg-input {
   margin-top: 5rem;
   text-align: center;
 }
 
-.login input {
+.register input {
   padding: 1rem;
 }
 
-.login h1 {
+.register h1 {
   padding-top: 15vh;
   font-family: "Raleway", sans-serif;
   text-align: center;
@@ -21,7 +21,7 @@
   color: #056c89ff;
 }
 
-.login button {
+.register button {
   text-align: center;
   padding: 10px 30px;
   background-color: #056c89ff;

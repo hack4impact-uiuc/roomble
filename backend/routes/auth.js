@@ -5,14 +5,13 @@ const { User } = require('../models');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
-    User.register(new User({ 
+    User.register(new User({ name: req.body.name,
         username: req.body.username,
         }), req.body.password, function(err) {
 
         if (err) {
             return next(err);
         }   
-
         res.sendStatus(200);
     });
     
