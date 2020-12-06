@@ -1,14 +1,16 @@
 export async function loadProfile(userId) {
-    const response = await fetch(`http://localhost:5000/profilepage/${userId}`);
+    const response = await fetch(`http://localhost:5000/profilepage/`, {
+        credentials: 'include',
+    });
    
     const text = await response.json();
-    console.log(text)
     return text;
  }
  export async function updateProfile(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoommates, shortDesc, longDesc, quizAnswers) {
     
     const response = await fetch("http://localhost:5000/updateProfile", {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type' : 'application/json'
         },
@@ -38,3 +40,17 @@ export async function getProfiles() {
     const profiles = await response.json();
     return profiles;
 }
+export async function login(username, password) {    
+    return await fetch("http://localhost:5000/auth/login", {        
+        method: 'POST',        
+        credentials: 'include',
+        headers: {            
+            'Content-Type': 'application/json'        
+        },        
+        body: JSON.stringify({
+            "username": username,
+            "password": password,
+        })   
+    });
+}
+

@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 
 // import new components here!!
+import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -22,6 +23,9 @@ ReactDOM.render(
         <Route exact path="/editprofile" render={(props) => <EditProfile {...props} />} />
         {/** Add new routes here!! */}
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
+        <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
+        
+        {/** Add new routes here!! */}
       </Switch>
     </Router>
   </React.StrictMode>,
