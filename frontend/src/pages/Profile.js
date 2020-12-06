@@ -22,9 +22,7 @@ function Profile() {
  
  useEffect(() => {
   const getText = async () => {
-  const profile = await loadProfile("5fadf6bba3e3324e794a1141");
-  console.log(profile);
-  console.log(profile['year']);
+  const profile = await loadProfile();
   setName(profile['name']);
   setYear(profile['year']);
   setAge(profile['age']);
