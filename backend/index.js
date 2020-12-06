@@ -37,7 +37,7 @@ const {authRoute} = require('./routes');
 const {profileRoute} = require("./routes");
 const {registerRoute} = require('./routes')
 app.use("/auth", authRoute);
-app.use("/profile" , profileRoute);
+app.use("/profiles" , profileRoute);
 app.use("/register", registerRoute)
 
 /** Sample endpoints */
@@ -45,6 +45,8 @@ app.get('/', async (req, res) => {
   res.send('Hello World')
 });
 
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
+
