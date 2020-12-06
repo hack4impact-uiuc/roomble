@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 
-const User = require('../models/User');
+const { User } = require('../models');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
@@ -17,8 +17,7 @@ router.post('/register', async (req, res, next) => {
     
 });
 
-router.post('/register', async (req, res, next) => {
-
+router.post('/login', async (req, res, next) => {
     passport.authenticate('local', {session: true })(req, res, function() {
         res.sendStatus(200);
     });

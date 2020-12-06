@@ -16,7 +16,7 @@ const authRoutes = require('./routes/auth.js');
 const app = express();
 const port = 5000;
 
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -29,7 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var User = require('./models/User')
+const { User } = require('./models');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -44,6 +44,7 @@ app.post('/register', async (req, res) => {
 })
 const Profilerouter = require("./routes/profiles.js");
 
+app.use("/auth", authRoutes);
 app.use("/profile" , Profilerouter);
 
 app.get('/', async (req, res) => {

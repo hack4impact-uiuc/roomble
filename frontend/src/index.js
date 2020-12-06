@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage'
 import Register from'./pages/Register'
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
 
 import FeedPage from './pages/FeedPage';
 
@@ -17,7 +18,6 @@ ReactDOM.render(
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
         <Route exact path="/register" render={(props) => <Register {...props} />} />
-        {/** Add new routes here!! */}
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
       </Switch>
     </Router>
