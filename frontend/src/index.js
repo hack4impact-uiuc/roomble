@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './pages/App';
+import Quiz from './pages/Quiz';
 // import new components here!!
-import Home from './pages/Home';
+
 import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
@@ -16,8 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path="/" render={(props) => <App {...props} />} />
-        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/" render={(props) => <Quiz {...props} />} />
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
         <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
         

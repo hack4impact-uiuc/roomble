@@ -19,27 +19,64 @@
   width:100%;
   height:100%;
   margin:auto;
-  width: 1200px;
+  width: 900px;
   min-height: 500px;
   height: min-content;
   border-radius: 15px;
   padding: 20px;
-  display: flex;
-  justify-content: space-evenly;
+  display: absolute;
+
   
+}
+.quiz-title {
+  text-align: center;
+  position: relative;
+  left: 2%;
+  color: white;
 }
 
 .submit-button {
   position: absolute;
-  top: 45%;
-  left: 47.5%;
+  bottom: 30%;
+  left: 48%;
 }
 
 .question-total {
-  position: absolute;
-  top: 6%;
-  left: 26%;
+  text-align: center;
+  position: relative;
+  left: 2%;
+  padding: 2%;
+  color: white;
 }
+
+.questions {
+  color: white;
+}
+
+.quiz-background {
+  background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);
+  margin: auto 0px;
+  width: auto 0px;
+  height: 1080px;
+
+}
+
+#buttonSubmit button:hover {
+  color:white;
+  text-shadow:1px 1px black;
+}
+
+#buttonSubmit button {
+  color:white;
+  font-size:15px;
+  font-weight:5;
+  text-shadow:1px 1px black;
+}
+
+/* .submit-button {
+  position: absolute;
+  bottom: 35%;
+} */
 
 
 

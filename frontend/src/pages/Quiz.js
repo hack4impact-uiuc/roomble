@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import '../styles/App.css';
+import '../styles/QuizStyle.css';
 import { Form, Radio } from 'semantic-ui-react'
 import {putQuizAnswers} from "../utils/api"
+import { Message } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 
 
-export default function App() {
+export default function Quiz() {
     const questions = [ {
         questionText: "What kind of sleeper do I consider myself as:",
         answerOptions: [
@@ -50,20 +52,18 @@ export default function App() {
     
 
 
-
 	return (  
-        <div className="app">
+        <div className="quiz-background">
         <div className="quiz">
-		<div className='quizTitle'>
+		<div className='quiz-title'>
             <h1>Compatibility Quiz</h1>
         </div>
         <div className='question-total'>
             Total Quiz Questions: {questions.length}
         </div>
         <div className="submit-button">
-        <button onClick={event => putQuizAnswers(answers)}>
-                Submit Quiz
-          </button>
+          <p id="buttonSubmit" style= {{textAlign:"center"}}><Button type='submit' onClick={event => putQuizAnswers(answers)}><span id="lab">Submit</span></Button></p>
+
         </div>
         <div className="questions">
             {questions.map((question, questionIndex) => (

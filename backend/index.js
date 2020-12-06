@@ -48,18 +48,16 @@ app.get('/', async (req, res) => {
 });
 
 app.put('/submitQuiz', async (req, res) => {
-  const quizAnswers = req.body["answers"]; 
-  console.log(quizAnswers)
-  const filter = { _id:  req.user._id};
-  const update = { quizAnswers: quizAnswers };
-  let doc = await Profile.findOneAndUpdate(filter, update);
-  res.status(200); 
-
-  // get users id 
-  // find user profile from id
-  // update specific profile with the quiz answers
-  // send success 
-  //{“quizAnswers”: [1,2,3]} 
+  if(req.isAuthenticated()) {
+    const quizAnswers = req.body["answers"]; 
+    console.log(quizAnswers)
+    const filter = { _id:  req.user._id};
+    const update = { quizAnswers: quizAnswers };
+    let doc = await Profile.findOneAndUpdate(filter, update);
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(401);
+  }
 }); 
 
 app.listen(port, () => {
