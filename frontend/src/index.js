@@ -1,7 +1,12 @@
+import 'semantic-ui-css/semantic.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomePage from './pages/HomePage';
 import SavedPostsPage from './pages/SavedPostsPage';
+
+
+import SignupPage from './pages/SignupPage'
+// import new components here!!
 import LoginPage from './pages/LoginPage'
 import RegisterPage from'./pages/RegisterPage'
 import FeedPage from './pages/FeedPage';
@@ -15,6 +20,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <HomePage {...props} />} />
+        <Route exact path="/signup" render={(props) => <SignupPage {...props} />} />
         <Route exact path="/login" render={(props) => <LoginPage {...props} />} />
         <Route exact path="/register" render={(props) => <RegisterPage {...props} />} />
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
