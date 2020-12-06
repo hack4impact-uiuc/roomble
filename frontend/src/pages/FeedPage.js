@@ -42,7 +42,7 @@ function FeedPage() {
                     <Icon size= "large" name="snapchat" />
                   </a>
                 </div>
-                <Image style={{height: "500px", width: "100%", marginTop: "15px"}} src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ariana-grande-attends-the-62nd-annual-grammy-awards-at-news-photo-1602693189.jpg"/>
+                <Image style={{height: "500px", width: "100%", marginTop: "15px", position:"absolute"}} src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ariana-grande-attends-the-62nd-annual-grammy-awards-at-news-photo-1602693189.jpg"/>
                 
                 <FeedExtra>
                   <div style={{columnCount: 1, marginTop: "15px"}}>

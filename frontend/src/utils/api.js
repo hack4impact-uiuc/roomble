@@ -19,6 +19,19 @@ export async function likeProfile(likedUser) {
         body: JSON.stringify({
             "likedUser": likedUser
         })
+    })
+}
+
+export async function register(username, password) {    
+    return await fetch("http://localhost:5000/auth/register", {        
+        method: 'POST',        
+        headers: {            
+            'Content-Type': 'application/json'        
+        },        
+        body: JSON.stringify({
+            "username": username,
+            "password": password
+        })   
     });
 }
 

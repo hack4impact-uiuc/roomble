@@ -1,7 +1,7 @@
 import '../styles/Home.css';
 import { Button } from 'semantic-ui-react'
 
-function Home() {
+function HomePage() {
   return (
     <div class="homepage">
       <h1>Roomble</h1>
@@ -14,4 +14,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

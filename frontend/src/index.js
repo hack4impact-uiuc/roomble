@@ -1,28 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import SavedPostsPage from './pages/SavedPostsPage';
-// import new components here!!
 import LoginPage from './pages/LoginPage'
-import reportWebVitals from './reportWebVitals';
-import 'semantic-ui-css/semantic.min.css'
-
+import RegisterPage from'./pages/RegisterPage'
 import FeedPage from './pages/FeedPage';
-
+import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import 'semantic-ui-css/semantic.min.css'
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path="/" render={(props) => <Home {...props} />} />
-        <Route exact path="/SavedPostsPage" render={(props) => <SavedPostsPage {...props} />} />
+        <Route exact path="/" render={(props) => <HomePage {...props} />} />
+        <Route exact path="/login" render={(props) => <LoginPage {...props} />} />
+        <Route exact path="/register" render={(props) => <RegisterPage {...props} />} />
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
-        <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
-        
-        {/** Add new routes here!! */}
+        <Route exact path="/saved-posts" render={(props) => <SavedPostsPage {...props} />} />
       </Switch>
     </Router>
   </React.StrictMode>,
