@@ -3,6 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
+<<<<<<< HEAD
+=======
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
+
+>>>>>>> main
 import SignupPage from './pages/SignupPage'
 // import new components here!!
 import LoginPage from './pages/LoginPage'
@@ -19,6 +25,12 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
+<<<<<<< HEAD
+=======
+        <Route exact path="/profile" render={(props) => <Profile {...props} />} />
+        <Route exact path="/editprofile" render={(props) => <EditProfile {...props} />} />
+        {/** Add new routes here!! */}
+>>>>>>> main
         <Route exact path="/signup" render={(props) => <SignupPage {...props} />} />
         <Route exact path="/login" render={(props) => <LoginPage {...props} />} />
         <Route exact path="/register" render={(props) => <Register {...props} />} />
