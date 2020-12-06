@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 /* input {
@@ -8,56 +9,71 @@ input {
     top: 100px;
     padding: 10px 10px;
     right: -70px;
+=======
+.login-page {
+  height: 100vh;
+  background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
+>>>>>>> 62ecf608907c89b173bc91958b89a89dadcb981e
 }
 
-h1 {
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    font-size: 50px;
-    position: relative;
-    top: 20px;
-    color: #056c89ff;
+.lp-input {
+  position: relative;
+  top: 100px;
+  padding: 10px 10px;
+  right: -70px;
 }
 
-h4 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: normal;
-    position: relative;
-    top: 210px;
-    padding: 7px;
-    left: 500px;
-    
+.lp-input-one {
+  text-align: center;
 }
 
-h2 {
-    position: relative;
-    top: 110px;
-    font-size: 12px;
-    text-align: center;
-    
+.lp-input-two {
+  -webkit-text-security: disc;
+  text-security: disc;
+  position: relative;
+  top: 0px;
+  padding: 10px 10px;
+  text-align: center;
 }
 
-.button {
-    position: relative;
-    text-align: center;
-    padding: 10px 30px;
-    top: 120px;
-    left: 590px;
-    background-color: #056c89ff;
-    border: #056c89ff;
-    color: white;
+.login-page h1 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  top: 20px;
+  color: #056c89ff;
 }
 
-.inputOne {
-    -webkit-text-security: disc;
-    text-security: disc;
-    position: relative;
-    top: 0px;
-    padding: 10px 10px;
-    text-align: center;
+.login-page h2 {
+  position: relative;
+  top: 110px;
+  font-size: 12px;
+  text-align: center;
 }
 
+.login-page h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  position: relative;
+  top: 210px;
+  padding: 7px;
+  left: 500px;
+}
 
+<<<<<<< HEAD
 body {
     background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
 }  */
+=======
+.login-page button {
+  position: relative;
+  text-align: center;
+  padding: 10px 30px;
+  top: 120px;
+  left: 590px;
+  background-color: #056c89ff;
+  border: #056c89ff;
+  color: white;
+}
+>>>>>>> 62ecf608907c89b173bc91958b89a89dadcb981e

@@ -16,7 +16,7 @@ const authRoutes = require('./routes/auth.js');
 const app = express();
 const port = 5000;
 
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -40,6 +40,7 @@ var db = mongoose.connection;
 const {Profile} = require("./models");
 const Profilerouter = require("./routes/profiles.js");
 
+app.use("/auth", authRoutes);
 app.use("/profile" , Profilerouter);
 
 app.get('/', async (req, res) => {
@@ -47,9 +48,13 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/createProfile', async (req, res) => {
-  const newProfile = new Profile(req.body);
-  await newProfile.save()
-  res.json(newProfile);
+  if (req.isAuthenticated()) {
+    const newProfile = new Profile({...req.body, userId: mongoose.Types.ObjectId(req.user._id)});
+    await newProfile.save()
+    res.json(newProfile);
+  } else {
+    res.sendStatus(401);
+  }
 })
 
 app.listen(port, () => {

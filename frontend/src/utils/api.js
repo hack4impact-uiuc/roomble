@@ -26,14 +26,29 @@ export async function submitProfile(name, school, year, age, gender, major, phon
         })
     });
 }
+export async function register(username, password) {    
+    return await fetch("http://localhost:5000/auth/register", {        
+        method: 'POST',        
+        headers: {            
+            'Content-Type': 'application/json'        
+        },        
+        body: JSON.stringify({
+            "username": username,
+            "password": password
+        })   
+    });
+}
+
 export async function getProfiles() {
     const response = await fetch("http://localhost:5000/profile");
     const profiles = await response.json();
     return profiles;
 }
+
 export async function login(username, password) {    
     return await fetch("http://localhost:5000/auth/login", {        
-        method: 'POST',        
+        method: 'POST',
+        credentials: 'include',        
         headers: {            
             'Content-Type': 'application/json'        
         },        
