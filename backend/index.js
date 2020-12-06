@@ -48,9 +48,13 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/createProfile', async (req, res) => {
-  const newProfile = new Profile(req.body);
-  await newProfile.save()
-  res.json(newProfile);
+  if (req.isAuthenticated()) {
+    const newProfile = new Profile({...req.body, userId: mongoose.Types.ObjectId(req.user._id)});
+    await newProfile.save()
+    res.json(newProfile);
+  } else {
+    res.sendStatus(401);
+  }
 })
 
 app.listen(port, () => {

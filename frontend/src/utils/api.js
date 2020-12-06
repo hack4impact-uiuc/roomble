@@ -2,6 +2,7 @@ export async function submitProfile(name, school, year, age, gender, major, phon
     
     const response = await fetch("http://localhost:5000/createProfile", {
         method: 'POST',
+        credentials: 'include',   
         headers: {
             'Content-Type' : 'application/json'
         },
@@ -33,6 +34,7 @@ export async function getProfiles() {
 export async function login(username, password) {    
     return await fetch("http://localhost:5000/auth/login", {        
         method: 'POST',        
+        credentials: 'include',   
         headers: {            
             'Content-Type': 'application/json'        
         },        
