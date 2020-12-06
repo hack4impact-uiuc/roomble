@@ -1,4 +1,4 @@
-export async function loadProfile(userId) {
+export async function loadProfile() {
     const response = await fetch(`http://localhost:5000/profilepage/`, {
         credentials: 'include',
     });

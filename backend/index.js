@@ -50,48 +50,49 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.get('/profilepage/', async (req, res) => {
-  console.log(req.isAuthenticated())
   if (req.isAuthenticated()) {
-    const {userId} = req.user._id;
-    const response = await Profile.find({userId: userId})
-    console.log(response)
-    res.json(response);
+    const userId = req.user._id;
+    const response = await Profile.find({userId: userId});
+    res.json(response[0]);
   } else {
     res.sendStatus(401);
   }
 });
 
 app.post('/updateProfile', async (req, res) => {
-  console.log('you made it!');
-  const filter = { _id: '5fadf6bba3e3324e794a1141' };
-  const update = { 
-    name : req.body.name, 
-    school : req.body.school, 
-    year : req.body.year, 
-    gender : req.body.gender, 
-    major : req.body.major, 
-    age : req.body.age,
-    phoneNumber : req.body.phoneNumber,
-    fbUsername :  req.body.fbUsername,
-    igUsername : req.body.igUsername,
-    scUsername : req.body.scUsername,
-    email : req.body.email,
-    housingType : req.body.housingType,
-    numRoomates : req.body.numRoomates,
-    shortDesc : req.body.shortDesc,
-    longDesc : req.body.longDesc
-  };
- await Profile.countDocuments(filter); // 0
+  if (req.isAuthenticated()) {
+    const filter = { userId: req.user._id };
+    const update = { 
+      name : req.body.name, 
+      school : req.body.school, 
+      year : req.body.year, 
+      gender : req.body.gender, 
+      major : req.body.major, 
+      age : req.body.age,
+      phoneNumber : req.body.phoneNumber,
+      fbUsername :  req.body.fbUsername,
+      igUsername : req.body.igUsername,
+      scUsername : req.body.scUsername,
+      email : req.body.email,
+      housingType : req.body.housingType,
+      numRoomates : req.body.numRoomates,
+      shortDesc : req.body.shortDesc,
+      longDesc : req.body.longDesc
+    };
+    await Profile.countDocuments(filter); // 0
 
- let doc = await Profile.findOneAndUpdate(filter, update, {
-  new: true,
-  upsert: true // Make this update into an upsert
-}); 
-  //console.log(req.body);
+    let doc = await Profile.findOneAndUpdate(filter, update, {
+      new: true,
+      upsert: true // Make this update into an upsert
+    }); 
+    //console.log(req.body);
 
-  //const newObj = new Profile(req.body);
-  //await newObj.save()
-  //res.json(newObj);
+    //const newObj = new Profile(req.body);
+    //await newObj.save()
+    //res.json(newObj);
+  } else {
+    res.sendStatus(401);
+  }
   
 })
 
