@@ -30,7 +30,10 @@ function SignupPage() {
   
   return (
     <div className="signupHome">
-      <p class="signupHeader"> Create your profile</p>
+      <h1 class="signupHeader"> Create your profile</h1>
+      <br></br>
+      <br></br>
+        <br></br>
         <div className="main">
           <Form>
           <Form.Field>
