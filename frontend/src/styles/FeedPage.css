@@ -1,6 +1,6 @@
 .feedpage {
     margin: auto;
-    background-image: repeating-linear-gradient(#FFCC5C, 70%, #FF6F69);
+    background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);
 }
 
 .cardGroup {
