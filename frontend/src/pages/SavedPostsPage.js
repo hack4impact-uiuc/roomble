@@ -4,28 +4,24 @@ import { Button, Card, Image, Icon, Dropdown} from 'semantic-ui-react'
 import { getLikedProfiles, deleteLiked } from '../utils/api';
 
 const userId = "5fc71641552408453069ecbc"
-const likedUser = "5fc70e3db6a3a3069c703021"
 
 
 function SavedPostsPage() {
   const [data, setData] = useState([])
   const [profiles, setProfiles] = useState([])
-  //const [like, setLiked] = useState(true)
 
   const loadSavedProfiles = async () => {
     const profiles = await getLikedProfiles(userId);
     setProfiles(profiles)
-    console.log(profiles);
   }
 
-  const refresh = async () => {
-    await deleteLiked(userId, likedUser);
+  const unlike = async (id) => {
+    await deleteLiked(userId, id);
     await loadSavedProfiles();
   }
+
   useEffect(() => {
-    
-    loadSavedProfiles();
-  
+    loadSavedProfiles();  
   }, []);
 
   return (
@@ -49,7 +45,7 @@ function SavedPostsPage() {
                   <Card.Description>{profile.shortDesc}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                      <Button compact basic floated='right' onClick = {refresh}>
+                      <Button compact basic floated='right' onClick = {unlike(profile._id)}>
                         <Icon size='small' class="other" name='heart outline' color='purple'/>
                       </Button>
                   </Card.Content>

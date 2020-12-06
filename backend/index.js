@@ -31,9 +31,6 @@ app.post('/likes/:userId', async (req, res) => {
   const {userId} = req.params;
   const {likedUser} = req.body;
   const userLikes = await Likes.findOne({userId});
-  console.log(userId);
-  console.log(likedUser);
-  console.log(userLikes)
   
   if(userLikes.likedUsers.includes(likedUser)) {
     //await Likes.findByIdAndUpdate(userId, {$pull: {likedUsers: likedUser}})
@@ -42,7 +39,7 @@ app.post('/likes/:userId', async (req, res) => {
   {
     await Likes.findOneAndUpdate({userId}, {$push: {likedUsers: likedUser}})
   }
-
+  res.sendStatus(200);
 })
 
 app.get('')
