@@ -1,6 +1,6 @@
 .register {
   height: 100vh;
-  background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
+  background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);
   text-align: center;
 }
 
@@ -18,14 +18,26 @@
   font-family: "Raleway", sans-serif;
   text-align: center;
   font-size: 50px;
-  color: #056c89ff;
+  color:white;
+  text-shadow: 2px 2px #024658;
 }
 
 .register button {
   text-align: center;
   padding: 10px 30px;
-  background-color: #056c89ff;
-  border: #056c89ff;
+  /* background-color: #056c89ff; */
+  /* border: #056c89ff; */
   color: white;
   margin-top: 2rem;
+  background-image: linear-gradient(to bottom right, #5FC6E2, #33B9DE, #14A5CD,#0C94BA, #0884A7, #056C89);
+  font-size:20px;
+  font-weight:5;
+  text-shadow:1px 1px black;
+}
+
+.register button:hover {
+  /* background-color: #FF6F6988; */
+  background-image: linear-gradient(to bottom right, #056C89, #0884A7, #0C94BA, #14A5CD, #33B9DE, #5FC6E2);
+  color:white;
+  text-shadow:1px 1px black;
 }

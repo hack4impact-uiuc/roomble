@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Like } = require('../models');
-const { Profile } = require('../models')
+const { Like, Profile } = require('../models');
 
 router.get('/', async (req, res) => {
     if (req.isAuthenticated()) {

@@ -1,0 +1,77 @@
+.profile-mediaIcons {
+    width: 100px;
+    height: 100px;
+}
+.profile-editprofile {
+    float: right;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+.profile-profilePic {
+   float: right;
+   margin-right: 300px;
+  
+
+}
+.profile-moveRight {
+    margin-left: 80px;
+    font-size: 16px;
+}
+
+.profile-extraSpacing {
+    padding-bottom: 100px;
+}
+
+.profilePageBackground {
+    background-image: linear-gradient(to top left, #056C89, #FF6F69, #ffcc5c);
+    min-height: 100vh;
+} 
+
+.profile-facebook {
+    color: #4267B2;
+}
+.profile-insta {
+    color:#C13584;
+}
+.profile-snapchat{
+    color:#fced44;
+    
+}
+.profile-pink {
+    color: #056C89;
+}
+.profilepage-heading {
+    margin-left: 5px;
+    padding: 2px;
+    font-size: 20px;
+    color: white;
+    background-color: #FF6F69;
+}
+.profile-text {
+    font-size: 16px;
+}
+.profilepage-name {
+    font-size: 30px;
+}
+.profile-descriptionheader {
+    padding: 2px;
+    font-size: 20px;
+    color: white;
+    background-color: #FF6F69;
+
+}
+.profile-description {
+    font-size: 16px;
+    padding-top: 5px;
+}
+.profilepage-green {
+    color: #7fe364;
+
+}
+.profile-textbig {
+    font-size: 18px;
+}
+.profile-textbold {
+    font-size: 16px;
+    font-weight: bold;
+}

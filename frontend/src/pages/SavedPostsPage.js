@@ -4,7 +4,6 @@ import { getLikedProfiles, likeProfile } from '../utils/api';
 import '../styles/SavedPostsPage.css';
 
 function SavedPostsPage() {
-  const [data, setData] = useState([])
   const [profiles, setProfiles] = useState([])
 
   const loadSavedProfiles = async () => {
@@ -19,7 +18,6 @@ function SavedPostsPage() {
 
   useEffect(() => {
     loadSavedProfiles();
-
   }, []);
 
   return (
