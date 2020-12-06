@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 
+import SignupPage from './pages/SignupPage'
 // import new components here!!
 import LoginPage from './pages/LoginPage'
 import Register from'./pages/Register'
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route exact path="/profile" render={(props) => <Profile {...props} />} />
         <Route exact path="/editprofile" render={(props) => <EditProfile {...props} />} />
         {/** Add new routes here!! */}
+        <Route exact path="/signup" render={(props) => <SignupPage {...props} />} />
         <Route exact path="/login" render={(props) => <LoginPage {...props} />} />
         <Route exact path="/register" render={(props) => <Register {...props} />} />
         <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />

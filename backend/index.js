@@ -38,7 +38,7 @@ const {authRoute} = require('./routes');
 const {profileRoute} = require("./routes");
 const {registerRoute} = require('./routes')
 app.use("/auth", authRoute);
-app.use("/profile" , profileRoute);
+app.use("/profiles" , profileRoute);
 app.use("/register", registerRoute)
 
 
