@@ -1,4 +1,33 @@
 .feedpage {
     margin: auto;
-    background-color: #FFCC5C;
+    background-image: repeating-linear-gradient(#FFCC5C, 70%, #FF6F69);
+}
+
+.cardGroup {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardHeader {
+    text-align: left;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.image {
+    height: 795px;
+    width: 100%;
+}
+
+.icons {
+    margin-left: 50px;
+}
+
+.heart {
+    float: right;
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
 }
