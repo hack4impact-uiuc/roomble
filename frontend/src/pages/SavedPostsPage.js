@@ -1,7 +1,7 @@
-import './SavedPostsPage.css';
 import React, { useEffect, useState } from "react";
 import { Button, Card, Image, Icon, Dropdown} from 'semantic-ui-react'
 import { getLikedProfiles, likeProfile } from '../utils/api';
+import '../styles/SavedPostsPage.css';
 
 function SavedPostsPage() {
   const [data, setData] = useState([])
@@ -48,17 +48,6 @@ function SavedPostsPage() {
                   </Card.Content>
             </Card>
           ))}
-          {/*
-            <Card>
-                  <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
-                  <Card.Content>
-                    <Card.Header>
-                      Hey 
-                    </Card.Header>
-                    <Card.Description>Hey fjlsdkf dsjlfk sdalfkj sadlfkj asdlfkj sadlfkj sadlfkjas dlfkjasd flkjdsa </Card.Description>
-                  </Card.Content>
-
-              </Card>*/}
           </Card.Group>
           
       </div>
