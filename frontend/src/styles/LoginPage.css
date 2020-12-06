@@ -1,19 +1,6 @@
-<<<<<<< HEAD
-
-
-/* input {
-    text-align: center;
-}
-input {
-    position: relative;
-    top: 100px;
-    padding: 10px 10px;
-    right: -70px;
-=======
 .login-page {
   height: 100vh;
   background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
->>>>>>> 62ecf608907c89b173bc91958b89a89dadcb981e
 }
 
 .lp-input {
@@ -61,11 +48,6 @@ input {
   left: 500px;
 }
 
-<<<<<<< HEAD
-body {
-    background-image: linear-gradient(90deg, #ff6f69ff, #ffcc5cff);
-}  */
-=======
 .login-page button {
   position: relative;
   text-align: center;
@@ -76,4 +58,3 @@ body {
   border: #056c89ff;
   color: white;
 }
->>>>>>> 62ecf608907c89b173bc91958b89a89dadcb981e
