@@ -56,7 +56,7 @@ function Profile() {
     <Popup content= {fbUsername} trigger={<Icon className = "profile-facebook" size='huge' name='facebook square' />} />
     <Popup content= {igUsername} trigger={<Icon className = "profile-insta" size='huge' name='instagram' />} />
     <Popup content= {scUsername} trigger={<Icon size='huge' className = "profile-snapchat" name='snapchat square' />} />
-    <span className = "profile-editprofile"><button class="ui blue basic button"><Link to="/editprofile">Edit Profile</Link></button></span>
+    <span className = "profile-editprofile"><Button><Link to="/editprofile">Edit Profile</Link></Button></span>
     </div>
     
     <div className = "profile-profilePic"><Image src='https://media-exp1.licdn.com/dms/image/C5603AQHBntQnGdcTZw/profile-displayphoto-shrink_200_200/0?e=1609977600&v=beta&t=dzx44XwbsZM5uidft3zf8JuBePv0shMtTl_yHKDaG64' size='medium' circular /></div>
@@ -126,7 +126,7 @@ function Profile() {
         <p1 className ="profile-moveRight">{numRoomates}</p1>
         <br></br>
         <br></br>
-        <button class="ui blue basic button">View Quiz</button>
+        <Button class="ui blue basic button">View Quiz</Button>
       </Grid.Column>
       <Grid.Column>
       <Container>

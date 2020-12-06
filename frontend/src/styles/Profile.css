@@ -23,7 +23,7 @@
 }
 
 .profilePageBackground {
-    background-image: linear-gradient(to bottom right, white, #FF6F69);
+    background-image: linear-gradient(to top left, #056C89, #FF6F69, #ffcc5c);
     min-height: 100vh;
 } 
 
