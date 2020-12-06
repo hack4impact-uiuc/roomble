@@ -1,22 +1,19 @@
 import './SavedPostsPage.css';
 import React, { useEffect, useState } from "react";
 import { Button, Card, Image, Icon, Dropdown} from 'semantic-ui-react'
-import { getLikedProfiles, deleteLiked } from '../utils/api';
-
-const userId = "5fc71641552408453069ecbc"
-
+import { getLikedProfiles, likeProfile } from '../utils/api';
 
 function SavedPostsPage() {
   const [data, setData] = useState([])
   const [profiles, setProfiles] = useState([])
 
   const loadSavedProfiles = async () => {
-    const profiles = await getLikedProfiles(userId);
+    const profiles = await getLikedProfiles();
     setProfiles(profiles)
   }
 
   const unlike = async (id) => {
-    await deleteLiked(userId, id);
+    await likeProfile(id);
     await loadSavedProfiles();
   }
 

@@ -4,8 +4,11 @@ import './index.css';
 import Home from './pages/Home';
 import SavedPostsPage from './pages/SavedPostsPage';
 // import new components here!!
+import LoginPage from './pages/LoginPage'
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
+
+import FeedPage from './pages/FeedPage';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -16,6 +19,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/SavedPostsPage" render={(props) => <SavedPostsPage {...props} />} />
+        <Route exact path="/feed" render={(props) => <FeedPage {...props} />} />
+        <Route exact path="/loginpage" render={(props) => <LoginPage {...props} />} />
+        
         {/** Add new routes here!! */}
       </Switch>
     </Router>
