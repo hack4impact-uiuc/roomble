@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     if (req.isAuthenticated()) {
         const userId = req.user._id;
         const ids = await Like.findOne({userId});
-        const profiles = await Profile.find({"_id": { $in: ids[0].likedUsers} });
+        const profiles = await Profile.find({"_id": { $in: ids.likedUsers} });
         res.json(profiles);
     } else {
         res.sendStatus(401);
@@ -21,10 +21,10 @@ router.post('/', async (req, res) => {
       const userLikes = await Like.findOne({userId});
       
       if(userLikes.likedUsers.includes(likedUser)) {
-        await Likes.findOneAndUpdate({userId}, {$pull: {likedUsers: likedUser}})
+        await Like.findOneAndUpdate({userId}, {$pull: {likedUsers: likedUser}})
       } else
       {
-        await Likes.findOneAndUpdate({userId}, {$push: {likedUsers: likedUser}})
+        await Like.findOneAndUpdate({userId}, {$push: {likedUsers: likedUser}})
       }
       res.sendStatus(200);
     } else {
