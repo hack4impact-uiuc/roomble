@@ -16,7 +16,7 @@ function LoginPage(props) {
       </div>
       <button onClick = {() => register(username, password).then(data => {
         if (data.status != 401) {
-          props.history.push('/createProfile');
+          props.history.push('/signup');
           
         }
       }
