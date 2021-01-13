@@ -37,11 +37,12 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
 const {authRoute} = require('./routes');
 const {profileRoute} = require("./routes");
 const {registerRoute} = require('./routes')
+const {likeRoute} = require("./routes")
+
 app.use("/auth", authRoute);
 app.use("/profiles" , profileRoute);
 app.use("/register", registerRoute)
-
-
+app.use("/likes", likeRoute)
 
 app.get('/profilepage/', async (req, res) => {
   if (req.isAuthenticated()) {
@@ -52,6 +53,7 @@ app.get('/profilepage/', async (req, res) => {
     res.sendStatus(401);
   }
 });
+
 /** Sample endpoints */
 app.get('/', async (req, res) => {
   res.send('Hello World')

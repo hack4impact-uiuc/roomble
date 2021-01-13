@@ -1,3 +1,27 @@
+export async function getLikedProfiles() {
+    const response = await fetch(`http://localhost:5000/likes`, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    return response.json();
+}
+
+export async function likeProfile(likedUser) {
+    const response = await fetch(`http://localhost:5000/likes`, {
+        method: "POST",
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "likedUser": likedUser
+        })
+    })
+}
+
 export async function loadProfile() {
     const response = await fetch(`http://localhost:5000/profilepage/`, {
         credentials: 'include',
@@ -35,6 +59,7 @@ export async function loadProfile() {
         })
     });
 }
+
 export async function submitProfile(name, school, year, age, gender, major, phoneNumber, fbUsername, igUsername, scUsername, email, housingType, numRoommates, shortDesc, longDesc, quizAnswers) {
     
     const response = await fetch("http://localhost:5000/profiles", {
@@ -63,6 +88,7 @@ export async function submitProfile(name, school, year, age, gender, major, phon
         })
     });
 }
+
 export async function register(username, password) {    
     return await fetch("http://localhost:5000/auth/register", {        
         method: 'POST',        
@@ -84,6 +110,8 @@ export async function getProfiles() {
 
 export async function login(username, password) {    
     return await fetch("http://localhost:5000/auth/login", {        
+        method: 'POST',        
+        credentials: 'include',
         method: 'POST',
         credentials: 'include',        
         headers: {            
@@ -95,4 +123,3 @@ export async function login(username, password) {
         })   
     });
 }
-

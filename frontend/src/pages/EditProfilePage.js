@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { Dropdown } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
-function EditProfile() {
+function EditProfilePage() {
   const contentAlign = {display:"flex", justifyContent:"center"}
   const inputAlign = {marginRight:"5%"}
   const [name, setName] = useState("");
@@ -136,4 +136,4 @@ function EditProfile() {
   
 }
 
-export default EditProfile;
+export default EditProfilePage;
