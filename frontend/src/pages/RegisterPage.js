@@ -10,7 +10,7 @@ function RegisterPage(props) {
     <div className="register">
       <h1>Sign Up</h1>
       <div className="reg-input">
-        <input type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
+        <input style={{color:"white"}} type="text" placeholder='Username' onChange={event => setUsername(event.target.value)} required/>
         <br/><br/>
         <input type="password" placeholder='Password' onChange={event => setPassword(event.target.value)} required/>
       </div>

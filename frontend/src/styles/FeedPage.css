@@ -1,4 +1,43 @@
 .feedpage {
-    margin: auto;
-    background-color: #FFCC5C;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c); 
 }
+
+#filterButton button {
+    /*background-color:#FF6F69;*/
+    /* background-image: linear-gradient(to bottom right, #FFA7A3, #FF918C, #FF6F69,#EE6661, #DD625C, #B4534E); */
+    background-color: transparent;
+    border: white solid;
+    color:white;
+    font-size:25px;
+    font-weight:7;
+    /* text-shadow:1px 1px black; */
+}
+
+#filterButton button:hover {
+    /* background-color: #FF6F6988; */
+    background-color: white;
+    /* color:#FFCC5C; */
+    color:black;
+    /* text-shadow:1px 1px black; */
+    
+}
+
+#filterDiv p {
+    font-size:15px;
+    font-weight: bold;
+    margin-top:10px;
+}
+
+#FilterInfo p {
+    margin-left:100px;
+    margin-right:50px;
+    margin-bottom:25px;
+    font-size:17px;
+}
+/*Temporarily added this css so I can see if results of filter are accurate with card ifno*/
+
+#checkboxDiv {
+    margin-left:15px;
+}
+
