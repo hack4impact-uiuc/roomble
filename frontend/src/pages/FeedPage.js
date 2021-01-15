@@ -76,13 +76,81 @@ function FeedPage() {
     return value;
   }
 
-  
-  function filterYear(value) {
-    
+  const filterYear= (values) => {
+    if (filterFresh == false && filterSoph == false && filterJunior == false && filterSenior == false && filterGrad == false) {
+      return values;
+    }
+    return values.filter(filterFr).filter(filterSo).filter(filterJr).filter(filterSr).filter(filterGr);
   }
 
-  function filterHousing(value) {
-    
+  const filterFr = (value) => {
+    if (filterFresh == false) {
+      return value.year != "freshman";
+    }
+    return value;
+  }
+
+  const filterSo = (value) => {
+    if (filterSoph == false) {
+      return value.year != "sophomore";
+    }
+    return value;
+  }
+
+  const filterJr = value => {
+    if (filterJunior == false) {
+      return value.year != "junior";
+    }
+    return value;
+  }
+
+  const filterSr = value => {
+    if (filterSenior == false) {
+      return value.year != "senior";
+    }
+    return value;
+  }
+
+  const filterGr = value => {
+    if (filterGrad == false) {
+      return value.year != "grad";
+    }
+    return value;
+  }
+
+  const filterHousing = (values) => {
+    if (filterPR == false && filterUG == false && filterGD == false && filterOC == false) {
+      return values;
+    }
+    return values.filter(filterP).filter(filterU).filter(filterGd).filter(filterOc);
+  }
+
+  const filterP = value => {
+    if (filterPR == false) {
+      return value.housingType != "private";
+    }
+    return value;
+  }
+
+  const filterU = value => {
+    if (filterUG == false) {
+      return value.housingType != "undergrad-dorms";
+    }
+    return value;
+  }
+
+  const filterGd = value => {
+    if (filterGD == false) {
+      return value.housingType != "grad-dorms";
+    }
+    return value;
+  }
+
+  const filterOc = value => {
+    if (filterOC == false) {
+      return value.housingType != "off-campus";
+    }
+    return value;
   }
 
   function filterBySchool(value) {
@@ -93,13 +161,37 @@ function FeedPage() {
   }
 
   function filterByRoommates(value) {
+    if (Number.isNaN(minRoommates) == true && Number.isNaN(maxRoommates) == true) {
+      setMinRoommates(1);
+      setMaxRoommates(10);
+    }
+    if (Number.isNaN(minRoommates)) {
+      setMinRoommates(1);
+    }
+    if (Number.isNaN(maxRoommates)) {
+      setMaxRoommates(10);
+    }
     return value.numRoomates >= minRoommates && value.numRoomates <= maxRoommates;
-
   }
 
   function filterByAge(value) {
+    if (Number.isNaN(minAge) == true && Number.isNaN(maxAge) == true) {
+      setMinAge(16);
+      setMaxAge(27);
+    }
+    if (Number.isNaN(minAge)) {
+      setMinAge(16);
+    }
+    if (Number.isNaN(maxAge)) {
+      setMaxAge(27);
+    }
     return value.age >= minAge && value.age <= maxAge;
+    
   }
+
+//   function refreshPage(){ 
+//     window.location.reload(); 
+// }
 
   function capitalize(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -120,25 +212,25 @@ function FeedPage() {
         <p style={{fontWeight:"normal", fontSize:"10px", marginLeft:"15px"}}>Set browser zoom to 100% for best quality</p>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Female"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Female"}} style={{marginBottom:"10px"}} value={filterGirl} onChange={event => setfilterGirl(!filterGirl)} />
          <br></br>
-         <Checkbox label={{ children: "Male"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Male"}} style={{marginBottom:"10px"}} value={filterBoy} onChange={event => setfilterBoy(!filterBoy)}/>
          <br></br>
-         <Checkbox label={{ children: "Non-Binary"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Non-Binary"}} style={{marginBottom:"10px"}} value={filterNBI} onChange={event => setfilterNBI(!filterNBI)}/>
          <br></br>
-         <Checkbox label={{ children: "Other"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Other"}} style={{marginBottom:"10px"}} value={filterOth} onChange={event => setfilterOth(!filterOth)}/>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Year</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Freshman"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Freshman"}} value={filterFresh} onChange={event => setfilterFresh(!filterFresh)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Sophomore"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Sophomore"}} value={filterSoph} onChange={event => setfilterSoph(!filterSoph)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Junior"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Junior"}} value={filterJunior} onChange={event => setfilterJunior(!filterJunior)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Senior"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Senior"}} value={filterSenior} onChange={event => setfilterSenior(!filterSenior)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Grad"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Grad"}} value={filterGrad} onChange={event => setfilterGrad(!filterGrad)} style={{marginBottom:"10px"}}/>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;School&nbsp;<span style={{fontWeight:"thinner", fontSize:"10px"}}><a target="_blank" href = "http://catalog.illinois.edu/schools/">UIUC Academic Units Reference</a></span></p>
          <div id = "checkboxDiv">
@@ -148,13 +240,13 @@ function FeedPage() {
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Housing Type</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Private"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Private"}} value={filterPR} onChange={event => setfilterPR(!filterPR)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Undergrad Dorms"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Undergrad Dorms"}} value={filterUG} onChange={event => setfilterUG(!filterUG)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Grad Dorms"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Grad Dorms"}} value={filterGD} onChange={event => setfilterGD(!filterGD)} style={{marginBottom:"10px"}}/>
          <br></br>
-         <Checkbox label={{ children: "Off Campus"}} style={{marginBottom:"10px"}}/>
+         <Checkbox label={{ children: "Off Campus"}} value={filterOC} onChange={event => setfilterOC(!filterOC)} style={{marginBottom:"10px"}}/>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age Range</p>
          <div id = "checkboxDiv">
@@ -170,7 +262,7 @@ function FeedPage() {
        </div>
       </div>
       <div style={{margin:'auto', marginTop:"5%"}}>
-       {filterGender(profiles).filter(filterBySchool).filter(filterByRoommates).filter(filterByAge).map(value => 
+       {filterHousing(filterYear(filterGender(profiles))).filter(filterBySchool).filter(filterByRoommates).filter(filterByAge).map(value => 
         <Card.Group itemsPerRow={1} style ={{display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
           <Card style={{margin: "auto", height: "100%", width: "700px"}}>  {/* Width was originally 60%*/}
               <Card.Content>
@@ -181,9 +273,9 @@ function FeedPage() {
                   </div>
                 </div>
                 <div style={{display: "block", float: "left"}}>
-                  <a target="_blank" href={"https://www.facebook.com/" + value.fbUsername}>
+                  {/* <a target="_blank" href={"https://www.facebook.com/" + value.fbUsername}> */}
                     <Popup content= {determineSMAccount(value.fbUsername)} trigger={<Icon size= "large" name="facebook square" className = "profile-facebook" data-inverted="" data-position="top left" />} />
-                  </a>
+                  {/* </a> */}
                   <a target="_blank" href={"https://www.instagram.com/" + value.igUsername}>
                     <Popup content= {determineSMAccount(value.igUsername)} trigger={<Icon size= "large" name="instagram" className = "profile-insta" />}/>
                   </a>
@@ -221,6 +313,9 @@ function FeedPage() {
         </Card.Group>
       )}
       </div>
+      {/* <div id="reloadButton">
+        <Button onClick={ refreshPage } style={{marginTop:"20px"}}> <span>Reload</span> </Button> 
+      </div> */}
     </div>
   );
 }

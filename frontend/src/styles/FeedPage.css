@@ -3,7 +3,7 @@
     background-image: linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c); 
 }
 
-#filterButton button {
+#filterButton button, #reloadButton button {
     /*background-color:#FF6F69;*/
     /* background-image: linear-gradient(to bottom right, #FFA7A3, #FF918C, #FF6F69,#EE6661, #DD625C, #B4534E); */
     background-color: transparent;
@@ -14,7 +14,7 @@
     /* text-shadow:1px 1px black; */
 }
 
-#filterButton button:hover {
+#filterButton button:hover, #reloadButton button:hover {
     /* background-color: #FF6F6988; */
     background-color: white;
     /* color:#FFCC5C; */
