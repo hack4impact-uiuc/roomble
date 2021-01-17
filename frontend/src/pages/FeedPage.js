@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import '../styles/FeedPage.css';
 import { Card, Image, Button, Icon, Divider, FeedExtra, Checkbox, Dropdown, Popup } from 'semantic-ui-react'
 import { getProfiles } from "../utils/api";
+import { Link } from "react-router-dom";
+
 
 function FeedPage() {
   const [filterGirl, setfilterGirl] = useState(false);
@@ -189,9 +191,9 @@ function FeedPage() {
     
   }
 
-//   function refreshPage(){ 
-//     window.location.reload(); 
-// }
+  function refreshPage(){ 
+    window.location.reload(); 
+}
 
   function capitalize(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -200,14 +202,15 @@ function FeedPage() {
   return (
 
     <div class="feedpage" style={{display:'flex'}}>
-      <div style={{marginLeft:"10px", position:"fixed"}} id="filterDiv">
+      <div style={{marginLeft:"10px", position:"fixed"}} id="filterDiv"> {/* When posiiton is fixed, it takes up no space so card elements are centered to middle of webpage. When fixed is remoed, card elements shift to the right since filter bar takes up space now */}
        <p id="filterButton"><Button style={{marginTop:"10px"}} onClick = {() => {
         if (vis === "hidden") {
           setVisibility("visible");
         } else {
           setVisibility("hidden");
         }
-        }}>Filter</Button></p>
+        }}>Filter</Button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <Button onClick={ refreshPage } style={{width:"100px"}}><Icon name="refresh"></Icon></Button> </p>
        <div style={{backgroundColor:"white", width:"70%", borderRadius:"10px", visibility:vis, overflow:"scroll"}}>
         <p style={{fontWeight:"normal", fontSize:"10px", marginLeft:"15px"}}>Set browser zoom to 100% for best quality</p>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender</p>
@@ -313,9 +316,11 @@ function FeedPage() {
         </Card.Group>
       )}
       </div>
-      {/* <div id="reloadButton">
-        <Button onClick={ refreshPage } style={{marginTop:"20px"}}> <span>Reload</span> </Button> 
-      </div> */}
+      <div style={{position:"fixed", marginLeft:"93%"}} id="filterButton">
+        <Link to="/feed"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="home" ></Icon></Button></Link>
+        <Link to="/profile"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="edit"></Icon></Button></Link>
+        <Link to="/saved-posts"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="heart"></Icon></Button></Link>
+      </div>
     </div>
   );
 }
