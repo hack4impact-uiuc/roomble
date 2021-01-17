@@ -264,7 +264,7 @@ function FeedPage() {
 
        </div>
       </div>
-      <div style={{margin:'auto', marginTop:"5%"}}>
+      <div style={{margin:'auto', marginTop:"115px"}}>
        {filterHousing(filterYear(filterGender(profiles))).filter(filterBySchool).filter(filterByRoommates).filter(filterByAge).map(value => 
         <Card.Group itemsPerRow={1} style ={{display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
           <Card style={{margin: "auto", height: "100%", width: "700px"}}>  {/* Width was originally 60%*/}
@@ -318,7 +318,7 @@ function FeedPage() {
       </div>
       <div style={{position:"fixed", marginLeft:"93%"}} id="filterButton">
         <Link to="/feed"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="home" ></Icon></Button></Link>
-        <Link to="/profile"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="edit"></Icon></Button></Link>
+        <Link to="/profile"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="user"></Icon></Button></Link>
         <Link to="/saved-posts"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="heart"></Icon></Button></Link>
       </div>
     </div>
