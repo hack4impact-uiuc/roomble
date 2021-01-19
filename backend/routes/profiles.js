@@ -4,7 +4,9 @@ const router = express.Router();
 const { Profile } = require('../models');
 
 router.get("/", async (req, res) => {
-  const response = await Profile.find({});
+  const query = req.query
+  console.log(query)
+  const response = await Profile.find(query);
   res.json(response);
 });
 

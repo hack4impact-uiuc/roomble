@@ -1,3 +1,5 @@
+import queryString from 'query-string'
+
 export async function getLikedProfiles() {
     const response = await fetch(`http://localhost:5000/likes`, {
         method: "GET",
@@ -102,8 +104,9 @@ export async function register(username, password) {
     });
 }
 
-export async function getProfiles() {
-    const response = await fetch("http://localhost:5000/profiles");
+export async function getProfiles(filters) {
+    const queryStr = queryString.stringify(filters)
+    const response = await fetch(`http://localhost:5000/profiles?${queryStr}`);
     const profiles = await response.json();
     return profiles;
 }

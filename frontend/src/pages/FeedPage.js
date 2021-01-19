@@ -43,153 +43,159 @@ function FeedPage() {
     }
   }
 
-  const filterGender = (values) => {
-    if (filterGirl == false && filterBoy == false && filterNBI == false && filterOth == false) {
-      return values;
-    }
-    return values.filter(filterG).filter(filterB).filter(filterNB).filter(filterO);
+  const filter = async () => {
+    const filtered = await getProfiles({gender: ['female', 'male'], year: ['freshman']})
+    console.log(filtered)
+    setProfile(filtered)
   }
 
-  const filterG = (value) => {
-    if (filterGirl == false) {
-      return value.gender != "female";
-    }
-    return value;
-  }
+  // const filterGender = (values) => {
+  //   if (filterGirl == false && filterBoy == false && filterNBI == false && filterOth == false) {
+  //     return values;
+  //   }
+  //   return values.filter(filterG).filter(filterB).filter(filterNB).filter(filterO);
+  // }
 
-  const filterB = (value) => {
-    if (filterBoy == false) {
-      return value.gender != "male";
-    }
-    return value;
-  }
+  // const filterG = (value) => {
+  //   if (filterGirl == false) {
+  //     return value.gender != "female";
+  //   }
+  //   return value;
+  // }
 
-  const filterNB = value => {
-    if (filterNBI == false) {
-      return value.gender != "non-binary";
-    }
-    return value;
-  }
+  // const filterB = (value) => {
+  //   if (filterBoy == false) {
+  //     return value.gender != "male";
+  //   }
+  //   return value;
+  // }
 
-  const filterO = value => {
-    if (filterOth == false) {
-      return value.gender != "other";
-    }
-    return value;
-  }
+  // const filterNB = value => {
+  //   if (filterNBI == false) {
+  //     return value.gender != "non-binary";
+  //   }
+  //   return value;
+  // }
 
-  const filterYear= (values) => {
-    if (filterFresh == false && filterSoph == false && filterJunior == false && filterSenior == false && filterGrad == false) {
-      return values;
-    }
-    return values.filter(filterFr).filter(filterSo).filter(filterJr).filter(filterSr).filter(filterGr);
-  }
+  // const filterO = value => {
+  //   if (filterOth == false) {
+  //     return value.gender != "other";
+  //   }
+  //   return value;
+  // }
 
-  const filterFr = (value) => {
-    if (filterFresh == false) {
-      return value.year != "freshman";
-    }
-    return value;
-  }
+  // const filterYear= (values) => {
+  //   if (filterFresh == false && filterSoph == false && filterJunior == false && filterSenior == false && filterGrad == false) {
+  //     return values;
+  //   }
+  //   return values.filter(filterFr).filter(filterSo).filter(filterJr).filter(filterSr).filter(filterGr);
+  // }
 
-  const filterSo = (value) => {
-    if (filterSoph == false) {
-      return value.year != "sophomore";
-    }
-    return value;
-  }
+  // const filterFr = (value) => {
+  //   if (filterFresh == false) {
+  //     return value.year != "freshman";
+  //   }
+  //   return value;
+  // }
 
-  const filterJr = value => {
-    if (filterJunior == false) {
-      return value.year != "junior";
-    }
-    return value;
-  }
+  // const filterSo = (value) => {
+  //   if (filterSoph == false) {
+  //     return value.year != "sophomore";
+  //   }
+  //   return value;
+  // }
 
-  const filterSr = value => {
-    if (filterSenior == false) {
-      return value.year != "senior";
-    }
-    return value;
-  }
+  // const filterJr = value => {
+  //   if (filterJunior == false) {
+  //     return value.year != "junior";
+  //   }
+  //   return value;
+  // }
 
-  const filterGr = value => {
-    if (filterGrad == false) {
-      return value.year != "grad";
-    }
-    return value;
-  }
+  // const filterSr = value => {
+  //   if (filterSenior == false) {
+  //     return value.year != "senior";
+  //   }
+  //   return value;
+  // }
 
-  const filterHousing = (values) => {
-    if (filterPR == false && filterUG == false && filterGD == false && filterOC == false) {
-      return values;
-    }
-    return values.filter(filterP).filter(filterU).filter(filterGd).filter(filterOc);
-  }
+  // const filterGr = value => {
+  //   if (filterGrad == false) {
+  //     return value.year != "grad";
+  //   }
+  //   return value;
+  // }
 
-  const filterP = value => {
-    if (filterPR == false) {
-      return value.housingType != "private";
-    }
-    return value;
-  }
+  // const filterHousing = (values) => {
+  //   if (filterPR == false && filterUG == false && filterGD == false && filterOC == false) {
+  //     return values;
+  //   }
+  //   return values.filter(filterP).filter(filterU).filter(filterGd).filter(filterOc);
+  // }
 
-  const filterU = value => {
-    if (filterUG == false) {
-      return value.housingType != "undergrad-dorms";
-    }
-    return value;
-  }
+  // const filterP = value => {
+  //   if (filterPR == false) {
+  //     return value.housingType != "private";
+  //   }
+  //   return value;
+  // }
 
-  const filterGd = value => {
-    if (filterGD == false) {
-      return value.housingType != "grad-dorms";
-    }
-    return value;
-  }
+  // const filterU = value => {
+  //   if (filterUG == false) {
+  //     return value.housingType != "undergrad-dorms";
+  //   }
+  //   return value;
+  // }
 
-  const filterOc = value => {
-    if (filterOC == false) {
-      return value.housingType != "off-campus";
-    }
-    return value;
-  }
+  // const filterGd = value => {
+  //   if (filterGD == false) {
+  //     return value.housingType != "grad-dorms";
+  //   }
+  //   return value;
+  // }
 
-  function filterBySchool(value) {
-    if (schoolType === "All") {
-      return value;
-    }
-    return value.school === schoolType;
-  }
+  // const filterOc = value => {
+  //   if (filterOC == false) {
+  //     return value.housingType != "off-campus";
+  //   }
+  //   return value;
+  // }
 
-  function filterByRoommates(value) {
-    if (Number.isNaN(minRoommates) == true && Number.isNaN(maxRoommates) == true) {
-      setMinRoommates(1);
-      setMaxRoommates(10);
-    }
-    if (Number.isNaN(minRoommates)) {
-      setMinRoommates(1);
-    }
-    if (Number.isNaN(maxRoommates)) {
-      setMaxRoommates(10);
-    }
-    return value.numRoomates >= minRoommates && value.numRoomates <= maxRoommates;
-  }
+  // function filterBySchool(value) {
+  //   if (schoolType === "All") {
+  //     return value;
+  //   }
+  //   return value.school === schoolType;
+  // }
 
-  function filterByAge(value) {
-    if (Number.isNaN(minAge) == true && Number.isNaN(maxAge) == true) {
-      setMinAge(16);
-      setMaxAge(27);
-    }
-    if (Number.isNaN(minAge)) {
-      setMinAge(16);
-    }
-    if (Number.isNaN(maxAge)) {
-      setMaxAge(27);
-    }
-    return value.age >= minAge && value.age <= maxAge;
+  // function filterByRoommates(value) {
+  //   if (Number.isNaN(minRoommates) == true && Number.isNaN(maxRoommates) == true) {
+  //     setMinRoommates(1);
+  //     setMaxRoommates(10);
+  //   }
+  //   if (Number.isNaN(minRoommates)) {
+  //     setMinRoommates(1);
+  //   }
+  //   if (Number.isNaN(maxRoommates)) {
+  //     setMaxRoommates(10);
+  //   }
+  //   return value.numRoomates >= minRoommates && value.numRoomates <= maxRoommates;
+  // }
+
+  // function filterByAge(value) {
+  //   if (Number.isNaN(minAge) == true && Number.isNaN(maxAge) == true) {
+  //     setMinAge(16);
+  //     setMaxAge(27);
+  //   }
+  //   if (Number.isNaN(minAge)) {
+  //     setMinAge(16);
+  //   }
+  //   if (Number.isNaN(maxAge)) {
+  //     setMaxAge(27);
+  //   }
+  //   return value.age >= minAge && value.age <= maxAge;
     
-  }
+  // }
 
   function refreshPage(){ 
     window.location.reload(); 
@@ -200,7 +206,6 @@ function FeedPage() {
   }
   
   return (
-
     <div class="feedpage" style={{display:'flex'}}>
       <div style={{marginLeft:"10px", position:"fixed"}} id="filterDiv"> {/* When posiiton is fixed, it takes up no space so card elements are centered to middle of webpage. When fixed is remoed, card elements shift to the right since filter bar takes up space now */}
        <p id="filterButton"><Button style={{marginTop:"10px"}} onClick = {() => {
