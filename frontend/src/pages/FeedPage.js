@@ -282,10 +282,7 @@ function FeedPage() {
                   <a target="_blank" href={"https://www.instagram.com/" + value.igUsername}>
                     <Popup content= {determineSMAccount(value.igUsername)} trigger={<Icon size= "large" name="instagram" className = "profile-insta" />}/>
                   </a>
-                  <a href="">
-                    <Popup content= {determineSMAccount(value.scUsername)} trigger={<Icon size= "large" name="snapchat" className = "profile-snapchat" name='snapchat square'/>}/>
-                  </a>
-                </div>
+                    <Popup content= {determineSMAccount(value.scUsername)} trigger={<Icon size= "large" name="snapchat" className = "profile-snapchat" name='snapchat square'/>}/>                </div>
                 <br></br>
                 <Divider></Divider>
                 <div style={{height: "75px", fontSize:"17px"}}>
