@@ -1,39 +1,31 @@
 import React, { useEffect, useState } from "react";
 import '../styles/FeedPage.css';
 import { Card, Image, Button, Icon, Divider, FeedExtra, Checkbox, Dropdown, Popup } from 'semantic-ui-react'
-import { getProfiles } from "../utils/api";
+import { getProfiles, loadProfile } from "../utils/api";
 import { Link } from "react-router-dom";
 
 
 function FeedPage() {
-  const [filterGirl, setfilterGirl] = useState(false);
-  const [filterBoy, setfilterBoy] = useState(false);
-  const [filterNBI, setfilterNBI] = useState(false);
-  const [filterOth, setfilterOth] = useState(false);
-  const [filterFresh, setfilterFresh] = useState(false);
-  const [filterSoph, setfilterSoph] = useState(false);
-  const [filterJunior, setfilterJunior] = useState(false);
-  const [filterSenior, setfilterSenior] = useState(false);
-  const [filterGrad, setfilterGrad] = useState(false);
-  const [filterPR, setfilterPR] = useState(false);
-  const [filterUG, setfilterUG] = useState(false);
-  const [filterGD, setfilterGD] = useState(false);
-  const [filterOC, setfilterOC] = useState(false);
-  const [schoolType, setSchool] = useState("All");
   const [minAge, setMinAge] = useState(16);
   const [maxAge, setMaxAge] = useState(27);
-  const [minRoommates, setMinRoommates] = useState(1);
-  const [maxRoommates, setMaxRoommates] = useState(10);
-  const [profiles, setProfile] = useState([]);
+  const [minRoom, setMinRoom] = useState(1);
+  const [maxRoom, setMaxRoom] = useState(10);
+  const [filters, setFilters] = useState({gender:[], year:[], housingType:[], school:[], age:[], numRoomates:[]});
+  const [profiles, setProfiles] = useState([]);
   const [vis, setVisibility] = useState("hidden");
   useEffect(() => {
-    const loadProfiles = async () => {
-      const profiles = await getProfiles();
-      setProfile(profiles);
+      // const loadProfiles = async () => {
+      // const profiles = await getProfiles();
+      // setProfiles(profiles);
+      const filter = async () => {
+        const filtered = await getProfiles(filters)
+        setProfiles(filtered)
     };
-    loadProfiles();
-  }, []);
-  const collegeOptions = [{key:"All", text:"All", value:"All"}, {key:"ACES", text:"ACES", value:"ACES"}, {key:"AHS", text:"AHS", value:"AHS"}, {key:"BUS", text:"BUS", value:"BUS"}, {key:"CIMED", text:"CIMED", value:"CIMED"}, {key:"COM", text:"COM", value:"COM"}, {key:"DGS", text:"DGS", value:"DGS"}, {key:"EDUC", text:"EDUC", value:"EDUC"}, {key:"ENG", text:"ENG", value:"ENG"}, {key:"FAA", text:"FAA", value:"FAA"}, {key:"LAS", text:"LAS", value:"LAS"}, {key:"LAW", text:"LAW", value:"LAW"}, {key:"LER", text:"LER", value:"LER"}, {key:"SSW", text:"SSW", value:"SSW"}, {key:"VetMed", text:"VetMed", value:"VetMed"}];
+    // loadProfiles();
+    filter();
+  }, [filters]);
+
+  const collegeOptions = [{key:"All", text:"All", value:"all"}, {key:"ACES", text:"ACES", value:"ACES"}, {key:"AHS", text:"AHS", value:"AHS"}, {key:"BUS", text:"BUS", value:"BUS"}, {key:"CIMED", text:"CIMED", value:"CIMED"}, {key:"COM", text:"COM", value:"COM"}, {key:"DGS", text:"DGS", value:"DGS"}, {key:"EDUC", text:"EDUC", value:"EDUC"}, {key:"ENG", text:"ENG", value:"ENG"}, {key:"FAA", text:"FAA", value:"FAA"}, {key:"LAS", text:"LAS", value:"LAS"}, {key:"LAW", text:"LAW", value:"LAW"}, {key:"LER", text:"LER", value:"LER"}, {key:"SSW", text:"SSW", value:"SSW"}, {key:"VetMed", text:"VetMed", value:"VetMed"}];
   
   const determineSMAccount = (value) => {
     if (value != "") {
@@ -42,160 +34,6 @@ function FeedPage() {
       return "None";
     }
   }
-
-  const filter = async () => {
-    const filtered = await getProfiles({gender: ['female', 'male'], year: ['freshman']})
-    console.log(filtered)
-    setProfile(filtered)
-  }
-
-  // const filterGender = (values) => {
-  //   if (filterGirl == false && filterBoy == false && filterNBI == false && filterOth == false) {
-  //     return values;
-  //   }
-  //   return values.filter(filterG).filter(filterB).filter(filterNB).filter(filterO);
-  // }
-
-  // const filterG = (value) => {
-  //   if (filterGirl == false) {
-  //     return value.gender != "female";
-  //   }
-  //   return value;
-  // }
-
-  // const filterB = (value) => {
-  //   if (filterBoy == false) {
-  //     return value.gender != "male";
-  //   }
-  //   return value;
-  // }
-
-  // const filterNB = value => {
-  //   if (filterNBI == false) {
-  //     return value.gender != "non-binary";
-  //   }
-  //   return value;
-  // }
-
-  // const filterO = value => {
-  //   if (filterOth == false) {
-  //     return value.gender != "other";
-  //   }
-  //   return value;
-  // }
-
-  // const filterYear= (values) => {
-  //   if (filterFresh == false && filterSoph == false && filterJunior == false && filterSenior == false && filterGrad == false) {
-  //     return values;
-  //   }
-  //   return values.filter(filterFr).filter(filterSo).filter(filterJr).filter(filterSr).filter(filterGr);
-  // }
-
-  // const filterFr = (value) => {
-  //   if (filterFresh == false) {
-  //     return value.year != "freshman";
-  //   }
-  //   return value;
-  // }
-
-  // const filterSo = (value) => {
-  //   if (filterSoph == false) {
-  //     return value.year != "sophomore";
-  //   }
-  //   return value;
-  // }
-
-  // const filterJr = value => {
-  //   if (filterJunior == false) {
-  //     return value.year != "junior";
-  //   }
-  //   return value;
-  // }
-
-  // const filterSr = value => {
-  //   if (filterSenior == false) {
-  //     return value.year != "senior";
-  //   }
-  //   return value;
-  // }
-
-  // const filterGr = value => {
-  //   if (filterGrad == false) {
-  //     return value.year != "grad";
-  //   }
-  //   return value;
-  // }
-
-  // const filterHousing = (values) => {
-  //   if (filterPR == false && filterUG == false && filterGD == false && filterOC == false) {
-  //     return values;
-  //   }
-  //   return values.filter(filterP).filter(filterU).filter(filterGd).filter(filterOc);
-  // }
-
-  // const filterP = value => {
-  //   if (filterPR == false) {
-  //     return value.housingType != "private";
-  //   }
-  //   return value;
-  // }
-
-  // const filterU = value => {
-  //   if (filterUG == false) {
-  //     return value.housingType != "undergrad-dorms";
-  //   }
-  //   return value;
-  // }
-
-  // const filterGd = value => {
-  //   if (filterGD == false) {
-  //     return value.housingType != "grad-dorms";
-  //   }
-  //   return value;
-  // }
-
-  // const filterOc = value => {
-  //   if (filterOC == false) {
-  //     return value.housingType != "off-campus";
-  //   }
-  //   return value;
-  // }
-
-  // function filterBySchool(value) {
-  //   if (schoolType === "All") {
-  //     return value;
-  //   }
-  //   return value.school === schoolType;
-  // }
-
-  // function filterByRoommates(value) {
-  //   if (Number.isNaN(minRoommates) == true && Number.isNaN(maxRoommates) == true) {
-  //     setMinRoommates(1);
-  //     setMaxRoommates(10);
-  //   }
-  //   if (Number.isNaN(minRoommates)) {
-  //     setMinRoommates(1);
-  //   }
-  //   if (Number.isNaN(maxRoommates)) {
-  //     setMaxRoommates(10);
-  //   }
-  //   return value.numRoomates >= minRoommates && value.numRoomates <= maxRoommates;
-  // }
-
-  // function filterByAge(value) {
-  //   if (Number.isNaN(minAge) == true && Number.isNaN(maxAge) == true) {
-  //     setMinAge(16);
-  //     setMaxAge(27);
-  //   }
-  //   if (Number.isNaN(minAge)) {
-  //     setMinAge(16);
-  //   }
-  //   if (Number.isNaN(maxAge)) {
-  //     setMaxAge(27);
-  //   }
-  //   return value.age >= minAge && value.age <= maxAge;
-    
-  // }
 
   function refreshPage(){ 
     window.location.reload(); 
@@ -220,57 +58,320 @@ function FeedPage() {
         <p style={{fontWeight:"normal", fontSize:"10px", marginLeft:"15px"}}>Set browser zoom to 100% for best quality</p>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Female"}} style={{marginBottom:"10px"}} value={filterGirl} onChange={event => setfilterGirl(!filterGirl)} />
+         <Checkbox 
+          id="female"
+          label={{ children: "Female"}} 
+          style={{marginBottom:"10px"}} 
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, gender:[...filters.gender,"female"]})
+              console.log(filters);
+            } else {
+              let removedFemale = filters.gender.filter((value) => {
+                return value != "female";
+              });
+              setFilters({...filters, gender:removedFemale})
+            }
+            // loadProfiles();
+          }
+          } 
+          />
          <br></br>
-         <Checkbox label={{ children: "Male"}} style={{marginBottom:"10px"}} value={filterBoy} onChange={event => setfilterBoy(!filterBoy)}/>
+         <Checkbox 
+          id="male"
+          label={{ children: "Male"}} 
+          style={{marginBottom:"10px"}} 
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, gender:[...filters.gender,"male"]})
+              console.log(filters);
+            } else {
+              let removedMale = filters.gender.filter((value) => {
+                return value != "male";
+              });
+              setFilters({...filters, gender:removedMale})
+            }
+            
+          }
+            }
+            />
          <br></br>
-         <Checkbox label={{ children: "Non-Binary"}} style={{marginBottom:"10px"}} value={filterNBI} onChange={event => setfilterNBI(!filterNBI)}/>
+         <Checkbox 
+          id="non-binary" 
+          label={{ children: "Non-Binary"}} 
+          style={{marginBottom:"10px"}} 
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, gender:[...filters.gender,"non-binary"]})
+              console.log(filters);
+            } else {
+              let removedNB = filters.gender.filter((value) => {
+                return value != "non-binary";
+              });
+              setFilters({...filters, gender:removedNB})
+            }
+
+          }
+            }/>
          <br></br>
-         <Checkbox label={{ children: "Other"}} style={{marginBottom:"10px"}} value={filterOth} onChange={event => setfilterOth(!filterOth)}/>
+         <Checkbox 
+          id="other" 
+          label={{ children: "Other"}} 
+          style={{marginBottom:"10px"}} 
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, gender:[...filters.gender,"other"]})
+              console.log(filters);
+            } else {
+              let removedOth = filters.gender.filter((value) => {
+                return value != "other";
+              });
+              setFilters({...filters, gender:removedOth})
+            }
+            
+          }
+            }/>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Year</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Freshman"}} value={filterFresh} onChange={event => setfilterFresh(!filterFresh)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="freshman" 
+          label={{ children: "Freshman"}}
+          style={{marginBottom:"10px"}}
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, year:[...filters.year,"freshman"]})
+              console.log(filters);
+            } else {
+              let removedFresh = filters.year.filter((value) => {
+                return value != "freshman";
+              });
+              setFilters({...filters, year:removedFresh})
+            }
+          }}
+          />
          <br></br>
-         <Checkbox label={{ children: "Sophomore"}} value={filterSoph} onChange={event => setfilterSoph(!filterSoph)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="sophomore" 
+          label={{ children: "Sophomore"}} 
+          style={{marginBottom:"10px"}}
+          onChange={event => {
+            if (event.target.checked) {
+              setFilters({...filters, year:[...filters.year,"sophomore"]})
+              console.log(filters);
+            } else {
+              let removedSoph = filters.year.filter((value) => {
+                return value != "sophomore";
+              });
+              setFilters({...filters, year:removedSoph})
+            }
+          }
+        } 
+          />
          <br></br>
-         <Checkbox label={{ children: "Junior"}} value={filterJunior} onChange={event => setfilterJunior(!filterJunior)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="junior" 
+          label={{ children: "Junior"}}
+          style={{marginBottom:"10px"}}
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, year:[...filters.year,"junior"]})
+            console.log(filters);
+          } else {
+            let removedJr = filters.year.filter((value) => {
+              return value != "junior";
+            });
+            setFilters({...filters, year:removedJr})
+          }}} 
+          />
          <br></br>
-         <Checkbox label={{ children: "Senior"}} value={filterSenior} onChange={event => setfilterSenior(!filterSenior)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="senior" 
+          label={{ children: "Senior"}}
+          style={{marginBottom:"10px"}}
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, year:[...filters.year,"senior"]})
+            console.log(filters);
+          } else {
+            let removedSr = filters.year.filter((value) => {
+              return value != "senior";
+            });
+            setFilters({...filters, year:removedSr})
+          }}} 
+          />
          <br></br>
-         <Checkbox label={{ children: "Grad"}} value={filterGrad} onChange={event => setfilterGrad(!filterGrad)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="grad" 
+          label={{ children: "Grad"}}
+          style={{marginBottom:"10px"}} 
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, year:[...filters.year,"grad"]})
+            console.log(filters);
+          } else {
+            let removedGrad = filters.year.filter((value) => {
+              return value != "grad";
+            });
+            setFilters({...filters, year:removedGrad})
+          }}} 
+          />
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;School&nbsp;<span style={{fontWeight:"thinner", fontSize:"10px"}}><a target="_blank" href = "http://catalog.illinois.edu/schools/">UIUC Academic Units Reference</a></span></p>
          <div id = "checkboxDiv">
          <div style={{width:"35%"}}>
-            <Dropdown size placeholder='School' search selection options={collegeOptions} onChange={(event, data) => setSchool(data.value)}/>
+            <Dropdown size placeholder='School' search selection options={collegeOptions} onChange={(event, data) => {
+              if (data.value === "all") {
+                setFilters({...filters, school:[]});
+              } else {
+                setFilters({...filters, school:[data.value]});
+              }
+              
+              }}/>
           </div>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Housing Type</p>
          <div id = "checkboxDiv">
-         <Checkbox label={{ children: "Private"}} value={filterPR} onChange={event => setfilterPR(!filterPR)} style={{marginBottom:"10px"}}/>
+         <Checkbox id="private" 
+          label={{ children: "Private"}}
+          style={{marginBottom:"10px"}} 
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, housingType:[...filters.housingType,"private"]})
+            console.log(filters);
+          } else {
+            let removePrivate = filters.housingType.filter((value) => {
+              return value != "private";
+            });
+            setFilters({...filters, housingType:removePrivate})
+          }}}           
+          />
          <br></br>
-         <Checkbox label={{ children: "Undergrad Dorms"}} value={filterUG} onChange={event => setfilterUG(!filterUG)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+         id="undergrad-dorms" 
+          label={{ children: "Undergrad Dorms"}} 
+          style={{marginBottom:"10px"}}
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, housingType:[...filters.housingType,"undergrad-dorms"]})
+            console.log(filters);
+          } else {
+            let removeUG = filters.housingType.filter((value) => {
+              return value != "undergrad-dorms";
+            });
+            setFilters({...filters, housingType:removeUG})
+          }}}      
+          />
          <br></br>
-         <Checkbox label={{ children: "Grad Dorms"}} value={filterGD} onChange={event => setfilterGD(!filterGD)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="grad-dorms" 
+          label={{ children: "Grad Dorms"}}
+          style={{marginBottom:"10px"}}
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, housingType:[...filters.housingType,"grad-dorms"]})
+            console.log(filters);
+          } else {
+            let removeGD = filters.housingType.filter((value) => {
+              return value != "grad-dorms";
+            });
+            setFilters({...filters, housingType:removeGD})
+          }}}               
+          />
          <br></br>
-         <Checkbox label={{ children: "Off Campus"}} value={filterOC} onChange={event => setfilterOC(!filterOC)} style={{marginBottom:"10px"}}/>
+         <Checkbox 
+          id="off-campus" 
+          label={{ children: "Off Campus"}} 
+          style={{marginBottom:"10px"}}
+          onChange={event => {if (event.target.checked) {
+            setFilters({...filters, housingType:[...filters.housingType,"off-campus"]})
+            console.log(filters);
+          } else {
+            let removeOC = filters.housingType.filter((value) => {
+              return value != "off-campus";
+            });
+            setFilters({...filters, housingType:removeOC})
+          }}}
+          />
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age Range</p>
          <div id = "checkboxDiv">
-         <p><input type="number" min="16" max="27" style={{width:"17%"}} placeholder="16" onChange={event => setMinAge(parseInt(event.target.value))}></input> to <input type="number" min="16" max="27" style={{width:"17%"}} placeholder="27" onChange={event => setMaxAge(parseInt(event.target.value))}></input></p>
+         <p>
+          <input 
+            type="number" 
+            min="16" 
+            max="27" 
+            style={{width:"17%"}} 
+            placeholder="16"
+            onChange={event => {
+              let arr =  [event.target.value !== "" ? parseInt(event.target.value): 16, maxAge];
+              setMinAge(arr[0]);
+              console.log(arr);
+              if (arr.length == 0) {
+                arr = [null];
+              }
+              setFilters({...filters, age:arr});
+            }
+          } >
+          </input> to &nbsp; 
+          <input 
+            type="number" 
+            min="16" 
+            max="27" 
+            style={{width:"17%"}} 
+            placeholder="27"
+            onChange={event => {
+              let arr =  [minAge, event.target.value !== "" ? parseInt(event.target.value): 27];
+              setMaxAge(arr[1]);
+              console.log(arr);
+              if (arr.length == 0) {
+                arr = [null];
+              }
+              setFilters({...filters, age:arr});
+            } 
+          } >
+          </input>
+        </p>
          </div>
          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of Roommates</p>
          <div id = "checkboxDiv">
-         <p><input type="number" min="1" max="10" style={{width:"17%"}} placeholder="1" onChange={event => setMinRoommates(parseInt(event.target.value))}></input> to <input type="number" min="1" max="10" style={{width:"17%"}} placeholder="10" onChange={event => setMaxRoommates(parseInt(event.target.value))}></input></p>
+         <p>
+           <input 
+            type="number" 
+            min="1" 
+            max="10" 
+            style={{width:"17%"}} 
+            placeholder="1" 
+            onChange={event => {
+              setMinRoom(event.target.value);
+              let arr = roommateRange.filter((value) => {
+                return value >= event.target.value && value <= maxRoom;
+              })
+              if (arr.length == 0) {
+                arr = [null];
+              }
+              setFilters({...filters, numRoomates:arr});
+              }
+            }></input> to 
+          <input 
+            type="number" 
+            min="1" 
+            max="10" 
+            style={{width:"17%"}} 
+            placeholder="10"
+            onChange={event => {
+              setMaxRoom(event.target.value);
+              let arr = roommateRange.filter((value) => {
+                return value >= minRoom && value <= event.target.value;
+              })
+              if (arr.length == 0) {
+                arr = [null];
+              }
+              setFilters({...filters, numRoomates:arr});
+            }
+          }></input></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-         {/* <p><input type="number" min="1" style={{width:"17%"}} placeholder="1"/> to <input min="1"  type="number" style={{width:"17%"}}  placeholder="10"/></p> */}
          </div>
 
        </div>
       </div>
-      <div style={{margin:'auto', marginTop:"115px"}}>
-       {filterHousing(filterYear(filterGender(profiles))).filter(filterBySchool).filter(filterByRoommates).filter(filterByAge).map(value => 
+            {/* ternary operator */}
+     {profiles.length > 0 ?  <div style={{margin:'auto', marginTop:"115px"}}>
+       {profiles.map(value => 
         <Card.Group itemsPerRow={1} style ={{display: 'flex', marginLeft: 'auto', marginRight: 'auto'}}>
           <Card style={{margin: "auto", height: "100%", width: "700px"}}>  {/* Width was originally 60%*/}
               <Card.Content>
@@ -317,14 +418,16 @@ function FeedPage() {
           </Card>
         </Card.Group>
       )}
-      </div>
+      </div> 
+      : <div style={{margin:'auto', marginTop:"115px", width:"100%",backgroundColor:"black", height:"1000px"}}><center><p style={{marginTop:"200px", color:"white"}}> No profiles found</p></center></div> }
+      {/* ternary operator */}
       <div style={{position:"fixed", marginLeft:"93%"}} id="filterButton">
         <Link to="/feed"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="home" ></Icon></Button></Link>
         <Link to="/profile"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="user"></Icon></Button></Link>
         <Link to="/saved-posts"><Button style={{marginTop:"20px", width:"100px"}}><Icon name="heart"></Icon></Button></Link>
       </div>
     </div>
-  );
+    ); 
 }
 
 export default FeedPage;

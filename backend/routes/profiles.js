@@ -5,6 +5,7 @@ const { Profile } = require('../models');
 
 router.get("/", async (req, res) => {
   const query = req.query
+  // req.query destructures it back as an object
   console.log(query)
   const response = await Profile.find(query);
   res.json(response);
