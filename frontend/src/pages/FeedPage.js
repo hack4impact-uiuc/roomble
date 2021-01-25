@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 function FeedPage() {
   const [minAge, setMinAge] = useState(16);
   const [maxAge, setMaxAge] = useState(27);
+  const [ageArr, setAgeArr] = useState([16, 27]);
   const [minRoom, setMinRoom] = useState(1);
   const [maxRoom, setMaxRoom] = useState(10);
-  const [filters, setFilters] = useState({gender:[], year:[], housingType:[], school:[], age:[], numRoomates:[]});
+  const [roommateArr, setRoommateArr] = useState([1,10]);
+  const [filters, setFilters] = useState({gender:[], year:[], housingType:[], school:[], numRoomates:[]});
   const [profiles, setProfiles] = useState([]);
   const [vis, setVisibility] = useState("hidden");
   useEffect(() => {
@@ -19,7 +21,7 @@ function FeedPage() {
       // setProfiles(profiles);
       const filter = async () => {
         const filtered = await getProfiles(filters)
-        setProfiles(filtered)
+        setProfiles(filtered, ageArr, roommateArr)
     };
     // loadProfiles();
     filter();
@@ -300,11 +302,11 @@ function FeedPage() {
             onChange={event => {
               let arr =  [event.target.value !== "" ? parseInt(event.target.value): 16, maxAge];
               setMinAge(arr[0]);
-              console.log(arr);
+              // console.log(arr);
               if (arr.length == 0) {
                 arr = [null];
               }
-              setFilters({...filters, age:arr});
+              setAgeArr(arr);
             }
           } >
           </input> to &nbsp; 
@@ -317,17 +319,17 @@ function FeedPage() {
             onChange={event => {
               let arr =  [minAge, event.target.value !== "" ? parseInt(event.target.value): 27];
               setMaxAge(arr[1]);
-              console.log(arr);
+              // console.log(arr);
               if (arr.length == 0) {
                 arr = [null];
               }
-              setFilters({...filters, age:arr});
+              setAgeArr(arr);
             } 
           } >
           </input>
         </p>
          </div>
-         <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of Roommates</p>
+         <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of Roommates </p>
          <div id = "checkboxDiv">
          <p>
            <input 
@@ -337,14 +339,12 @@ function FeedPage() {
             style={{width:"17%"}} 
             placeholder="1" 
             onChange={event => {
-              setMinRoom(event.target.value);
-              let arr = roommateRange.filter((value) => {
-                return value >= event.target.value && value <= maxRoom;
-              })
+              let arr = [event.target.value !== "" ? parseInt(event.target.value) : 1, maxRoom];
+              setMinRoom(arr[0]);
               if (arr.length == 0) {
                 arr = [null];
               }
-              setFilters({...filters, numRoomates:arr});
+              setRoommateArr(arr);
               }
             }></input> to 
           <input 
@@ -354,14 +354,12 @@ function FeedPage() {
             style={{width:"17%"}} 
             placeholder="10"
             onChange={event => {
-              setMaxRoom(event.target.value);
-              let arr = roommateRange.filter((value) => {
-                return value >= minRoom && value <= event.target.value;
-              })
+              let arr = [minRoom, event.target.value !== "" ? parseInt(event.target.value) : 10]
+              setMaxRoom(arr[1]);
               if (arr.length == 0) {
                 arr = [null];
               }
-              setFilters({...filters, numRoomates:arr});
+              setRoommateArr(arr);
             }
           }></input></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>

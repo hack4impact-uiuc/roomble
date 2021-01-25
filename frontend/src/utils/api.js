@@ -104,7 +104,7 @@ export async function register(username, password) {
     });
 }
 
-export async function getProfiles(filters) {
+export async function getProfiles(filters, ageArr, roommateArr) {
     const queryStr = queryString.stringify(filters)
     const response = await fetch(`http://localhost:5000/profiles?${queryStr}`);
     const profiles = await response.json();
