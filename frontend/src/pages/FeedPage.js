@@ -24,6 +24,7 @@ function FeedPage() {
         setProfiles(filtered, ageArr, roommateArr)
     };
     // loadProfiles();
+    //comment
     filter();
   }, [filters]);
 
