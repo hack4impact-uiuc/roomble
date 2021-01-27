@@ -11,7 +11,7 @@ router.post('/register', async (req, res, next) => {
 
         if (err) {
             return next(err);
-        }   
+        }
         res.sendStatus(200);
     });
     

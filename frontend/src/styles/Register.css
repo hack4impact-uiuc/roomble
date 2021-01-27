@@ -5,12 +5,18 @@
 }
 
 .reg-input {
-  margin-top: 5rem;
+  margin-top: 3rem;
   text-align: center;
+  color:white;
 }
-
+.register ::placeholder {
+  color: white;
+}
 .register input {
   padding: 1rem;
+  border: white solid;
+  background-color:transparent;
+  color:white;
 }
 
 .register h1 {
@@ -19,7 +25,6 @@
   text-align: center;
   font-size: 50px;
   color:white;
-  text-shadow: 2px 2px #024658;
 }
 
 .register button {
@@ -28,16 +33,31 @@
   /* background-color: #056c89ff; */
   /* border: #056c89ff; */
   color: white;
+  border: white solid;
   margin-top: 2rem;
-  background-image: linear-gradient(to bottom right, #5FC6E2, #33B9DE, #14A5CD,#0C94BA, #0884A7, #056C89);
+  background-color: transparent;
   font-size:20px;
-  font-weight:5;
-  text-shadow:1px 1px black;
+  font-weight:bold;
+  /* animation-name: colorChange;
+  animation-duration: 2s;
+  animation-iteration-count: 3; */
 }
 
 .register button:hover {
   /* background-color: #FF6F6988; */
-  background-image: linear-gradient(to bottom right, #056C89, #0884A7, #0C94BA, #14A5CD, #33B9DE, #5FC6E2);
-  color:white;
-  text-shadow:1px 1px black;
+  background-color: white;
+  color:#FF6F69;
 }
+
+/* @keyframes colorChange{
+  from{
+     background-color:#FF6F69; 
+    }
+    50%{
+      background-color:#fd4842dc;
+    }
+    to {
+     background-color:#FF6F69;
+    }
+
+  } */
