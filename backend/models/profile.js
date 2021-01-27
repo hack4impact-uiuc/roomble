@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProfileSchema = new Schema({
@@ -54,11 +54,11 @@ var ProfileSchema = new Schema({
   },
   housingType: {
     type: String,
-    enum: ['undergrad-dorms','grad-dorms', 'private', 'off-campus'],
+    enum: ['undergrad-dorms', 'grad-dorms', 'private', 'off-campus'],
     default: 'undergrad-dorms',
     required: true,
   },
-  numRoomates: {
+  numRoommates: {
     type: Number,
     required: true,
   },
@@ -76,4 +76,4 @@ var ProfileSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Profile", ProfileSchema);
+module.exports = mongoose.model('Profile', ProfileSchema);
