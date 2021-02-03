@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Image, Icon, Dropdown, FeedExtra} from 'semantic-ui-react'
 import { getLikedProfiles, likeProfile } from '../utils/api';
+import { Link } from 'react-router-dom';
 import '../styles/SavedPostsPage.css';
 
 function SavedPostsPage() {
@@ -22,8 +23,25 @@ function SavedPostsPage() {
 
   return (
     <div class="page">
+      {/* <div style={{ position: 'fixed', marginLeft: '93%' }} id='filterButton'>
+        <Link to='/feed'>
+          <Button style={{ marginTop: '20px', width: '100px' }}>
+            <Icon name='home'></Icon>
+          </Button>
+        </Link>
+        <Link to='/profile'>
+          <Button style={{ marginTop: '20px', width: '100px' }}>
+            <Icon name='user'></Icon>
+          </Button>
+        </Link>
+        <Link to='/saved-posts'>
+          <Button style={{ marginTop: '20px', width: '100px' }}>
+            <Icon name='heart'></Icon>
+          </Button>
+        </Link>
+      </div> */}
       <h1 class="title">Liked Profiles</h1>
-
+      
       <div class="cards">
         <Card.Group itemsPerRow={3}>
 

@@ -11,7 +11,8 @@ import {
   Dropdown,
   Popup,
 } from 'semantic-ui-react';
-import { getProfiles, loadProfile } from '../utils/api';
+import { getProfiles, loadProfile, getLikedProfiles, likeProfile} from '../utils/api';
+
 import { Link } from 'react-router-dom';
 
 function FeedPage() {
@@ -25,7 +26,7 @@ function FeedPage() {
   });
   const [profiles, setProfiles] = useState([]);
   const [vis, setVisibility] = useState('hidden');
-
+  const [heartState, setHeartState] = useState("heart outline");
   const filter = async () => {
     const filtered = await getProfiles(filters);
     setProfiles(filtered);
@@ -34,6 +35,9 @@ function FeedPage() {
   useEffect(() => {
     filter();
   }, [filters]);
+  const like = async (userId) => {
+    await likeProfile(userId);
+  }
 
   const collegeOptions = [
     { key: 'All', text: 'All', value: 'all' },
@@ -583,7 +587,10 @@ function FeedPage() {
                         style={{ float: 'right' }}
                         display='flex'
                         size='big'
-                        name='heart outline'
+                        name="heart outline"
+                        color = "pink"
+                        onClick = {() => like(value._id)}
+
                       />
                     </div>
                   </FeedExtra>
