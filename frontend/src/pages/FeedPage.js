@@ -392,12 +392,10 @@ function FeedPage() {
                 style={{ width: '17%' }}
                 placeholder='16'
                 onChange={(event) => {
-                  if (event.target.value) {
                     let newFilters = filters;
-                    newFilters.age[0] = parseInt(event.target.value);
+                    newFilters.age[0] = parseInt(event.target.value !== "" ? event.target.value : 16);
                     setFilters(newFilters);
                     filter();
-                  }
                 }}
               ></input>{' '}
               to &nbsp;
@@ -408,12 +406,10 @@ function FeedPage() {
                 style={{ width: '17%' }}
                 placeholder='27'
                 onChange={(event) => {
-                  if (event.target.value) {
                     let newFilters = filters;
-                    newFilters.age[1] = parseInt(event.target.value);
+                    newFilters.age[1] = parseInt(event.target.value !== "" ? event.target.value : 27);
                     setFilters(newFilters);
                     filter();
-                  }
                 }}
               ></input>
             </p>
@@ -428,12 +424,10 @@ function FeedPage() {
                 style={{ width: '17%' }}
                 placeholder='1'
                 onChange={(event) => {
-                  if (event.target.value) {
                     let newFilters = filters;
-                    newFilters.numRoommates[0] = parseInt(event.target.value);
+                    newFilters.numRoommates[0] = parseInt(event.target.value !== "" ? event.target.value : 1);
                     setFilters(newFilters);
                     filter();
-                  }
                 }}
               ></input>{' '}
               to
@@ -444,12 +438,11 @@ function FeedPage() {
                 style={{ width: '17%' }}
                 placeholder='10'
                 onChange={(event) => {
-                  if (event.target.value) {
                     let newFilters = filters;
-                    newFilters.numRoommates[1] = parseInt(event.target.value);
+                    newFilters.numRoommates[1] = parseInt(event.target.value !== "" ? event.target.value : 10);
+                    console.log(newFilters.numRoommates[1]);
                     setFilters(newFilters);
                     filter();
-                  }
                 }}
               ></input>
             </p>
@@ -460,7 +453,7 @@ function FeedPage() {
         </div>
       </div>
       {/* ternary operator */}
-      {profiles ? (
+      {profiles.length > 0 ? (
         <div style={{ margin: 'auto', marginTop: '115px' }}>
           {profiles.map((value) => (
             <Card.Group
@@ -605,12 +598,13 @@ function FeedPage() {
             margin: 'auto',
             marginTop: '115px',
             width: '100%',
-            backgroundColor: 'black',
+            backgroundImage:"linear-gradient(to bottom right, #056C89, #FF6F69, #ffcc5c);",
+            // backgroundColor: 'black',
             height: '1000px',
           }}
         >
           <center>
-            <p style={{ marginTop: '200px', color: 'white' }}>
+            <p style={{ marginTop: '200px', color: 'white',fontWeight:"bold",fontSize:"45px" }}>
               {' '}
               No profiles found
             </p>
